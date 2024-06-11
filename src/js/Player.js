@@ -11,6 +11,11 @@ export class Player extends Actor {
         this.sprite = Resources.Player.toSprite()
         this.graphics.use(this.sprite)
         this.pos = new Vector(300, 300)
+        //this.on("collisionstart", () => this.interact())
+    }
+
+    interact() {
+
     }
 
 
