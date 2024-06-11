@@ -1,27 +1,24 @@
-import '../css/style.css'
-import { Actor, Engine, Vector, DisplayMode } from "excalibur"
-import { Resources, ResourceLoader } from './resources.js'
+import '../css/style.css';
+import { Actor, Engine, Vector, Label, Font, FontUnit, Color } from "excalibur";
+import { Resources, ResourceLoader } from './resources.js';
+import { introScreen } from './introScreen.js';
+import { outroScreen } from './outroScreen.js';
 
 export class Game extends Engine {
 
     constructor() {
-        super({ 
-            width: 1280,
-            height: 720,
-            maxFps: 60,
-            displayMode: DisplayMode.FitScreen
-         })
+        super({width: 1920, height: 1080})
         this.start(ResourceLoader).then(() => this.startGame())
     }
 
-    startGame() {
-        console.log("start de game!")
-        const fish = new Actor()
-        fish.graphics.use(Resources.Fish.toSprite())
-        fish.pos = new Vector(400, 300)
-        fish.vel = new Vector(-10,0)
-        this.add(fish)
+    startGame(){
+        this.add('introScreen', new introScreen())
+        this.add('planet1', new planet1())
+        this.add('planet2', new planet2())
+        this.add('planet3', new planet3())
+        this.add('outroScreen', new outroScreen())
+        this.goToScene('introScreen')
     }
 }
 
-new Game()
+new Game();
