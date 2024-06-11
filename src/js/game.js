@@ -11,11 +11,12 @@ import { planet3 } from './planet3.js';
 export class Game extends Engine {
 
     constructor() {
-        super({width: 1920, height: 1080})
+        super({ width: window.innerWidth, height: window.innerHeight })
         this.start(ResourceLoader).then(() => this.startGame())
+        this.debugMode = true
     }
 
-    startGame(){
+    startGame() {
         this.add('introScreen', new introScreen())
         this.add('planet1', new planet1())
         this.add('planet2', new planet2())

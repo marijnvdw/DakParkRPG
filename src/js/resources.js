@@ -6,6 +6,7 @@ const Resources = {
     Fish: new ImageSource('images/fish.png'),
 
     //Sem
+    Player: new ImageSource('images/Sem/testMan.png'),
 
     //Sil
 
