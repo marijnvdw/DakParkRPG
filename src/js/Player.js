@@ -5,6 +5,8 @@ export class Player extends Actor {
 
     constructor() {
         super({ width: Resources.Player.width, height: Resources.Player.height })
+        let inventory = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+
     }
 
     onInitialize() {

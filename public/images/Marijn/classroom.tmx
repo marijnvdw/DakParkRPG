@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="1">
+ <tileset firstgid="1" name="Interiors_free_32x32" tilewidth="32" tileheight="32" tilecount="1424" columns="16">
+  <image source="Interiors_free_32x32.png" width="512" height="2848"/>
+  <tile id="577">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="9.95531" width="32" height="22.0447"/>
+   </objectgroup>
+  </tile>
+  <tile id="578">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="10" width="32" height="22"/>
+   </objectgroup>
+  </tile>
+  <tile id="579">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="9.82661" width="32" height="22.1734"/>
+   </objectgroup>
+  </tile>
+  <tile id="580">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="10.014" width="32" height="21.986"/>
+   </objectgroup>
+  </tile>
+  <tile id="593">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="3.91598"/>
+   </objectgroup>
+  </tile>
+  <tile id="594">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="3.86563"/>
+   </objectgroup>
+  </tile>
+  <tile id="595">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="3.96633"/>
+   </objectgroup>
+  </tile>
+  <tile id="596">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="3.96633"/>
+   </objectgroup>
+  </tile>
+  <tile id="597">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="4" y="0" width="28" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="609">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="2" y="18" width="28" height="14"/>
+   </objectgroup>
+  </tile>
+  <tile id="615">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="18" y="22" width="14" height="10"/>
+   </objectgroup>
+  </tile>
+  <tile id="616">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="21.863" width="32" height="10.137"/>
+   </objectgroup>
+  </tile>
+  <tile id="617">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="22.1147" width="9.94965" height="9.8853"/>
+   </objectgroup>
+  </tile>
+  <tile id="625">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="2" y="0" width="28" height="17.8993"/>
+   </objectgroup>
+  </tile>
+  <tile id="631">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="18" y="0" width="14" height="18.053"/>
+    <object id="2" x="18" y="0" width="14" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="632">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="17.8516"/>
+    <object id="2" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="633">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="10" height="18.053"/>
+    <object id="2" x="0" y="0" width="10" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="670">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="28"/>
+   </objectgroup>
+  </tile>
+  <tile id="1132">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="16"/>
+   </objectgroup>
+  </tile>
+  <tile id="1133">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="16"/>
+   </objectgroup>
+  </tile>
+  <tile id="1134">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="16"/>
+   </objectgroup>
+  </tile>
+  <tile id="1135">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="16"/>
+   </objectgroup>
+  </tile>
+  <tile id="1180">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="16"/>
+   </objectgroup>
+  </tile>
+  <tile id="1181">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="16"/>
+   </objectgroup>
+  </tile>
+  <tile id="1182">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="16"/>
+   </objectgroup>
+  </tile>
+  <tile id="1183">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="16"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="1425" name="Room_Builder_free_32x32" tilewidth="32" tileheight="32" tilecount="391" columns="17">
+  <image source="Room_Builder_free_32x32.png" width="544" height="736"/>
+  <tile id="5">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="18" y="0" width="14" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="6">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="14" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="7">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="18" y="0" width="14" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="8">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="14" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="22">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="12"/>
+   </objectgroup>
+  </tile>
+  <tile id="23">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="12"/>
+   </objectgroup>
+  </tile>
+  <tile id="24">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="12"/>
+   </objectgroup>
+  </tile>
+  <tile id="25">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="12"/>
+   </objectgroup>
+  </tile>
+  <tile id="39">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="18" y="0" width="14" height="31"/>
+    <object id="2" x="0" y="0" width="32" height="13"/>
+   </objectgroup>
+  </tile>
+  <tile id="40">
+   <objectgroup draworder="index" id="3">
+    <object id="6" x="0" y="0" width="32" height="11.5"/>
+    <object id="7" x="0" y="0" width="13" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="47">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="14" height="32"/>
+    <object id="2" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="60">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="12"/>
+   </objectgroup>
+  </tile>
+  <tile id="63">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="12"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <layer id="1" name="Tilelaag 1" width="20" height="15">
+  <data encoding="csv">
+1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,
+1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,
+1518,1518,1518,1518,1518,1518,1573,1573,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,1518,
+1535,1535,1535,1535,1535,1535,1573,1573,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,1535,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,
+1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573,1573
+</data>
+ </layer>
+ <layer id="3" name="art" width="20" height="15">
+  <properties>
+   <property name="solid" type="bool" value="false"/>
+  </properties>
+  <data encoding="csv">
+0,0,0,0,456,457,0,456,457,0,456,457,0,622,623,654,655,1067,1068,0,
+0,0,0,0,472,473,0,472,473,0,472,473,0,638,639,670,671,1083,1084,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,248,249,250,251,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,264,265,266,267,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,280,281,282,283,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="6" name="pillows" width="20" height="15">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1212,1213,1214,1215,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1228,1229,1230,1231,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1244,1245,1246,1247,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1260,1261,1262,1263,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="2" name="Walls" width="20" height="15">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <data encoding="csv">
+1610614200,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356032,2684356025,
+1431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1431,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1465,2684355991,2684355991,2684355991,2684355991,2684355991,0,0,2684355991,2684355991,2684355991,2684355991,2684355991,2684355991,2684355991,2684355991,2684355991,2684355991,2684355991,1432,
+1472,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1472,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1472,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1472,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+1472,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1432,
+3221226936,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226960,3221226937
+</data>
+ </layer>
+ <layer id="5" name="chairs" width="20" height="15">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,610,0,610,0,610,0,610,0,
+0,0,0,0,0,0,0,0,0,0,0,0,626,0,626,0,626,0,626,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="4" name="Desks" width="20" height="15">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1101,1102,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1117,1118,0,0,0,0,0,0,0,0,0,0,0,616,617,618,0,0,0,
+0,1133,1134,0,0,0,0,0,0,0,0,0,0,0,632,633,634,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,578,0,579,0,580,0,581,0,
+0,0,0,0,0,0,0,0,0,0,0,0,594,0,595,0,596,0,597,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1154,1155,1156,0,0,0,0,653,653,653,653,653,653,653,653,653,653,653,0,
+0,1170,1171,1172,0,0,0,0,669,669,669,669,669,669,669,669,669,669,669,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+</map>
