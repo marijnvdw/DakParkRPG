@@ -6,6 +6,7 @@ const Resources = {
 
     //Sem
     Player: new ImageSource('images/Sem/testMan.png'),
+    Boss1: new ImageSource('images/Sem/orb2.png'),
 
     //Sil
 

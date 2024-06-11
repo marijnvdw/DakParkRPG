@@ -4,12 +4,13 @@ import { Resources, ResourceLoader } from './resources.js'
 export class Player extends Actor {
 
     constructor() {
-        super()
+        super({ width: Resources.Player.width, height: Resources.Player.height })
     }
 
     onInitialize() {
         this.sprite = Resources.Player.toSprite()
         this.graphics.use(this.sprite)
+        this.scale = new Vector(0.125, 0.125)
         this.pos = new Vector(300, 300)
         //this.on("collisionstart", () => this.interact())
     }
