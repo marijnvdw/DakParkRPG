@@ -10,7 +10,7 @@ export class homeBase extends Scene {
     }
 
     onInitialize() {
-        let item = new PickupItem(Fish)
+        let item = new PickupItem("Player")
         this.add(item)
     }
 }
