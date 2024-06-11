@@ -1,25 +1,29 @@
 import '../css/style.css';
-import { Actor, Vector, Label, Font, FontUnit, Color, Scene } from "excalibur";
+import { Actor, Vector, Label, Font, FontUnit, Color, Scene, ImageSource } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
+import { Player } from './Player.js';
 
 
 export class testPlaneet extends Scene {
-    constructor(game) {
+    constructor() {
         super();
 
-        // const fish = new Actor()
-        // fish.graphics.use(Resources.Fish.toSprite())
-        // fish.pos = new Vector(400, 300)
-        // fish.vel = new Vector(-10,0)
-        // this.add(fish)
+        //Resources.ClassroomMap.addToScene(this);
 
-        Resources.ClassroomMap.addToScene(this);
-
-        // const tiledMap = new TiledResource('images/Marijn/school2.tmx');
-        // const loader = new ex.Loader([tiledMap]);
-        // game.start(loader).then(() => {
-        // tiledMap.addToScene(game.currentScene);
-        // });
-   
     }
+    
+    onActivate() {
+        let player = new Player
+        this.add(player)
+
+        let inventory = new Actor
+        inventory.sprite = Resources.inventory.toSprite()
+        inventory.pos = new Vector(700, 900)
+        this.add(inventory)
+
+
+        Resources.Fish.addToScene(this);
+    }
+
+
 }

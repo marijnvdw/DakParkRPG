@@ -13,7 +13,8 @@ const Resources = {
     //Maaike
 
     //Marijn
-    ClassroomMap: new TiledResource('images/Marijn/NewMap.tmx')
+    ClassroomMap: new TiledResource('images/Marijn/NewMap.tmx'),
+    inventory: new ImageSource('images/Marijn/inv.png')
 
 }
 
