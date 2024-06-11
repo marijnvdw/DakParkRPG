@@ -3,6 +3,9 @@ import { Actor, Engine, Vector, Label, Font, FontUnit, Color } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
 import { introScreen } from './introScreen.js';
 import { outroScreen } from './outroScreen.js';
+import { planet1 } from './planet1.js'
+import { planet2 } from './planet2.js'
+import { planet3 } from './planet3.js'
 
 export class Game extends Engine {
 
