@@ -11,7 +11,7 @@ export class testPlaneet extends Scene {
         //Resources.ClassroomMap.addToScene(this);
 
     }
-    
+
     onActivate() {
         let player = new Player
         this.add(player)
@@ -22,7 +22,7 @@ export class testPlaneet extends Scene {
         this.add(inventory)
 
 
-        Resources.Fish.addToScene(this);
+        // Resources.Fish.addToScene(this);
     }
 
 

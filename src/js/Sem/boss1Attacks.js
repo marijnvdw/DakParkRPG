@@ -18,18 +18,7 @@ export class Attack1 extends Actor {
         this.graphics.use(this.sprite)
         this.scale = new Vector(0.4, 0.4)
 
-        this.actions.moveTo(this.target.pos.x, this.target.pos.y, 300)
-    }
-    onPostUpdate() {
-        this.xScale *= 1.008
-        this.yScale *= 1.008
-        this.lifeSpan++
-
-
-        this.scale = new Vector(this.xScale, this.yScale)
-
-        if (this.lifeSpan === 200) {
-            this.kill()
-        }
+        this.actions.moveTo(this.target.pos.x, this.target.pos.y, 400)
+        this.actions.scaleTo(new Vector(1.3, 1.3), new Vector(1.5, 1.5)).die()
     }
 }
