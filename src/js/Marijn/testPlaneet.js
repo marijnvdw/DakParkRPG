@@ -6,6 +6,7 @@ import { HealthPotion, Sword } from "../Item.js";
 import { HotBar } from '../UI.js'
 
 
+
 export class testPlaneet extends Scene {
     constructor() {
         super();
@@ -18,20 +19,27 @@ export class testPlaneet extends Scene {
             { item: new Sword(), x: 200, y: 200 }
         ];
 
-        this.hotBar = new HotBar()
-        this.add(this.hotBar)
+        //this.hotBar = new HotBar()
+        //this.add(this.hotBar)
     }
 
     onActivate() {
         this.add(this.character);
 
-        let inventory = new Actor
-        inventory.sprite = Resources.inventory.toSprite()
-        inventory.pos = new Vector(700, 900)
-        this.add(inventory)
+        // let inventory = new Actor
+        // inventory.sprite = Resources.inventory.toSprite()
+        // inventory.pos = new Vector(700, 900)
+        // this.add(inventory)
 
+        // //HotBarItems
 
-        //Resources.Fish.addToScene(this);
+        // let inventoryItems = new Actor
+        // inventory.sprite = Resources.inventory.toSprite()
+        // inventory.pos = new Vector(700, 900)
+        // this.add(inventory)
+
+        this.hotBar = new HotBar(this.character); // Create HotBar instance
+        this.add(this.hotBar);
 
         this.items.forEach((itemData) => {
             
@@ -52,8 +60,9 @@ export class testPlaneet extends Scene {
                 console.error('Error loading image source:', error);
             });
 
-            
 
+
+        
             itemActor.on('collisionstart', (evt) => {
                 if (evt.other === this.character) {
                     this.character.addItemToInventory(itemData.item);

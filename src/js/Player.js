@@ -1,6 +1,7 @@
 import { Actor, Vector, Keys } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
+import { HotBar } from './UI.js'
 
 export class Player extends Actor {
     dash = true;
@@ -33,6 +34,9 @@ export class Player extends Actor {
 
     addItemToInventory(item) {
         this.inventory.addItem(item);
+        // if (this.hotBar) {
+        //     this.hotBar.updateHotBarItems(); // Update HotBar
+        // }
     }
 
     useItemFromInventory(item) {
