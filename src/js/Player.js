@@ -16,8 +16,8 @@ export class Player extends Actor {
     onInitialize(engine) {
         this.sprite = Resources.Player.toSprite();
         this.graphics.use(this.sprite);
-        this.scale = new Vector(0.25, 0.25);
-        this.pos = new Vector(300, 300);
+        this.scale = new Vector(0.5, 0.5);
+        //this.pos = new Vector(300, 300);
         //this.on("collisionstart", () => this.interact())
 
         engine.input.keyboard.on('press', (evt) => {
