@@ -1,6 +1,7 @@
 import { Actor, Vector, Keys, ScreenElement } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
+import { Player } from "./Player.js";
 
 export class HotBar extends ScreenElement {
 
@@ -11,5 +12,14 @@ export class HotBar extends ScreenElement {
         this.pos = new Vector(window.innerWidth / 2, window.innerHeight - 30)//width: window.innerWidth, height: window.innerHeight
     }
 
-    
+    changeSprite() {
+        this.graphics.use(Resources.playButton.toSprite())
+    }
+}
+
+export class HpBar extends ScreenElement {
+
+    onInitialize(engine) {
+    }
+
 }

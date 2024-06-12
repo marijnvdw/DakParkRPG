@@ -4,8 +4,10 @@ import { Player } from "../Player.js"
 import { Attack1 } from './boss1Attacks.js'
 
 export class Boss1 extends Actor {
-    attackSpeed = 300
+    attackSpeed = 200
     attackCD = 0
+    hp
+    maxHp
     constructor() {
         super({ width: Resources.Boss1.width, height: Resources.Boss1.height })
     }
