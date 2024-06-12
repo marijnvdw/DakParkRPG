@@ -1,6 +1,7 @@
 import { Actor, Vector, Keys } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
+import { Attack1 } from "./Sem/boss1Attacks.js";
 
 export class Player extends Actor {
     dash = true;
@@ -18,7 +19,7 @@ export class Player extends Actor {
         this.graphics.use(this.sprite);
         this.scale = new Vector(0.25, 0.25);
         this.pos = new Vector(300, 300);
-        //this.on("collisionstart", () => this.interact())
+        //  this.on("collisionstart", (event) => this.interact(event))
 
         engine.input.keyboard.on('press', (evt) => {
             if (evt.key === Keys.I) {
@@ -27,8 +28,12 @@ export class Player extends Actor {
         });
     }
 
-    interact() {
-        // Interaction logic will be defined here
+    interact(event) {
+        // console.log("hihi")
+        // if (event.other === Attack1) {
+        //     this.hp = this.hp - event.other.dmg
+        //     console.log(this.hp)
+        // }
     }
 
     addItemToInventory(item) {
@@ -52,16 +57,16 @@ export class Player extends Actor {
 
         //movement
         if (kb.isHeld(Keys.W)) {
-            this.pos.y--;
+            this.pos.y -= 0.7;
         }
         if (kb.isHeld(Keys.A)) {
-            this.pos.x--;
+            this.pos.x -= 0.7;
         }
         if (kb.isHeld(Keys.S)) {
-            this.pos.y++;
+            this.pos.y += 0.7;
         }
         if (kb.isHeld(Keys.D)) {
-            this.pos.x++;
+            this.pos.x += 0.7;
         }
 
         //dash mechanic
