@@ -16,7 +16,6 @@ export class Boss1 extends Actor {
         this.sprite = Resources.Boss1.toSprite()
         this.graphics.use(this.sprite)
         this.pos = new Vector(600, 600)
-
         let rangeDetector = new Actor({ radius: 5000 })
         this.addChild(rangeDetector)
         rangeDetector.on('precollision', (event) => this.attack(event, Math.ceil(Math.random() * 10)))
@@ -29,11 +28,13 @@ export class Boss1 extends Actor {
                 if (attackNumber <= 9) {
                     this.attackPattern = new Attack1(this.pos.x, this.pos.y, event.other)
                     this.scene.add(this.attackPattern)
+                    this.attackCD = 0
                 } else {
                     this.actions.moveTo(event.other.pos, 750)
+                    this.attackCD = 100
                 }
 
-                this.attackCD = 0
+
             }
         }
 
