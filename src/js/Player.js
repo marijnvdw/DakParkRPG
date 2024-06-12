@@ -57,7 +57,7 @@ export class Player extends Actor {
             }
         }
 
-        if (this.dashCD < 300) {
+        if (this.dashCD < 240) {
             this.dashCD++
         } else {
             this.dashCD = 0
