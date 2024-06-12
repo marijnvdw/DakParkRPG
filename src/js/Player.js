@@ -5,6 +5,8 @@ import { Inventory } from './Inventory.js';
 export class Player extends Actor {
     dash = true;
     dashCD = 0;
+    hp = 50
+    maxHp = 50
 
     constructor() {
         super({ width: Resources.Player.width, height: Resources.Player.height });
@@ -14,7 +16,7 @@ export class Player extends Actor {
     onInitialize(engine) {
         this.sprite = Resources.Player.toSprite();
         this.graphics.use(this.sprite);
-        this.scale = new Vector(0.125, 0.125);
+        this.scale = new Vector(0.25, 0.25);
         this.pos = new Vector(300, 300);
         //this.on("collisionstart", () => this.interact())
 
