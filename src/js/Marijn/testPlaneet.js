@@ -10,7 +10,7 @@ export class testPlaneet extends Scene {
 
         Resources.ClassroomMap.addToScene(this);
     }
-    
+
     onActivate() {
         let player = new Player
         this.add(player)

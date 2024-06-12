@@ -7,6 +7,7 @@ import { testPlaneet } from  './Marijn/testPlaneet.js';
 import { planet1 } from './planet1.js';
 import { planet2 } from './planet2.js';
 import { planet3 } from './planet3.js';
+import { homeBase } from './homeBase.js';
 
 export class Game extends Engine {
 
@@ -24,7 +25,7 @@ export class Game extends Engine {
         this.add('testPlaneet', new testPlaneet())
         this.add('outroScreen', new outroScreen())
         //this.goToScene('introScreen')
-        this.goToScene('testPlaneet')
+        this.goToScene('introScreen')
     }
 }
 

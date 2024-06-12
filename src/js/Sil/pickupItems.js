@@ -1,6 +1,7 @@
-import '../css/style.css';
+
 import { Actor, Vector, Label, Font, FontUnit, Color, Scene } from "excalibur";
-import { Resources, ResourceLoader } from './resources.js';
+import { Resources, ResourceLoader } from '../resources.js';
+import { Player } from "../Player.js";
 
 export class PickupItem extends Actor {
     constructor(item) {
@@ -14,7 +15,7 @@ export class PickupItem extends Actor {
         this.pos = new Vector(300, 300)
     }
 
-    // onCollisionEnd() {
-    //     this.scene.Player.addChild(`${item}`)
-    // }
+    CollisionHandeler() {
+        this.scene.Player.addChild([this.item])
+    }
 }
