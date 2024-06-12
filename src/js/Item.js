@@ -1,24 +1,19 @@
 import { Resource, ImageSource  } from "excalibur";
 import { Resources } from './resources.js';
 
+
 export class Item {
     constructor(name, description, imagePath) {
         this.name = name;
         this.description = description;
-        // this.sprite = graphicss.toSprite();
-        // this.graphics.use(this.sprite)
-        // this.sprite = Resources.apple.toSprite()
-        // this.graphics.use(this.sprite)
+        this.image = imagePath;
 
-        this.image = imagePath; // Image for the item
+        
     }
 
     use(character) {
-        // Default use action
         console.log(`${character.name} used ${this.name}`);
     }
-
-    
 }
 
 export class HealthPotion extends Item {
@@ -31,8 +26,6 @@ export class HealthPotion extends Item {
     use(character) {
         character.health += 50;
         console.log(`${character.name} restored 50 health`);
-        
-        
     }
 
 }
@@ -40,7 +33,6 @@ export class HealthPotion extends Item {
 export class Sword extends Item {
     constructor() {
         super("Sword", "A sharp blade", Resources.sword);
-        
     }
 
     use(character) {

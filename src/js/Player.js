@@ -2,6 +2,7 @@ import { Actor, Vector, Keys } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
 import { Attack1 } from "./Sem/boss1Attacks.js";
+import { HotBar } from './UI.js'
 
 export class Player extends Actor {
 
@@ -28,6 +29,9 @@ export class Player extends Actor {
 
     addItemToInventory(item) {
         this.inventory.addItem(item);
+        // if (this.hotBar) {
+        //     this.hotBar.updateHotBarItems(); // Update HotBar
+        // }
     }
 
     useItemFromInventory(item) {
