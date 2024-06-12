@@ -25,7 +25,7 @@ export class Game extends Engine {
         this.add('testPlaneet', new testPlaneet())
         this.add('outroScreen', new outroScreen())
         //this.goToScene('introScreen')
-        this.goToScene('introScreen')
+        this.goToScene('testPlaneet')
     }
 }
 
