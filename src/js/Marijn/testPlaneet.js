@@ -1,15 +1,14 @@
-import '../css/style.css';
+import '../../css/style.css';
 import { Actor, Vector, Label, Font, FontUnit, Color, Scene, ImageSource } from "excalibur";
-import { Resources, ResourceLoader } from './resources.js';
-import { Player } from './Player.js';
+import { Resources, ResourceLoader } from '../resources.js';
+import { Player } from '../Player.js';
 
 
 export class testPlaneet extends Scene {
     constructor() {
         super();
 
-        //Resources.ClassroomMap.addToScene(this);
-
+        Resources.ClassroomMap.addToScene(this);
     }
     
     onActivate() {
@@ -22,7 +21,7 @@ export class testPlaneet extends Scene {
         this.add(inventory)
 
 
-        Resources.Fish.addToScene(this);
+        //Resources.Fish.addToScene(this);
     }
 
 
