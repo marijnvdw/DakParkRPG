@@ -1,5 +1,5 @@
 import '../../css/style.css';
-import { Actor, Vector, Label, Font, FontUnit, Color, Scene, ImageSource } from "excalibur";
+import { Engine, Scene, Actor, Vector, Color, Sprite } from "excalibur";
 import { Resources, ResourceLoader } from '../resources.js';
 import { Player } from '../Player.js';
 import { HealthPotion, Sword } from "../Item.js";
@@ -34,12 +34,25 @@ export class testPlaneet extends Scene {
         //Resources.Fish.addToScene(this);
 
         this.items.forEach((itemData) => {
+            
             const itemActor = new Actor({
                 pos: new Vector(itemData.x, itemData.y),
-                width: 20,
-                height: 20,
-                color: Color.Red
+                width: 32,
+                height: 32
             });
+
+            const imageSource = itemData.item.image;
+            imageSource.load().then(() => {
+                const sprite = new Sprite({
+                    image: imageSource,
+                    destSize: { width: 32, height: 32 } // Optional: Adjust size if needed
+                });
+                itemActor.graphics.use(sprite);
+            }).catch((error) => {
+                console.error('Error loading image source:', error);
+            });
+
+            
 
             itemActor.on('collisionstart', (evt) => {
                 if (evt.other === this.character) {

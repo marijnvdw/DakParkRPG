@@ -11,7 +11,5 @@ export class HotBar extends ScreenElement {
         this.pos = new Vector(window.innerWidth / 2, window.innerHeight - 30)//width: window.innerWidth, height: window.innerHeight
     }
 
-    changeSprite() {
-        this.graphics.use(Resources.playButton.toSprite())
-    }
+    
 }
