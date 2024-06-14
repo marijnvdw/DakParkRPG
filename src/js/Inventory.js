@@ -7,8 +7,7 @@ export class Inventory {
 
     addItem(item) {
         this.items.push(item);
-        //this.HotBar.updateHotBarItems()
-        // this.UI.updateHotBarItems()
+        
     }
 
     removeItem(item) {

@@ -21,8 +21,7 @@ export class testPlaneet extends Scene {
             { item: new Sword(), x: 200, y: 200 }
         ];
 
-        //this.hotBar = new HotBar()
-        //this.add(this.hotBar)
+
     }
 
     onActivate() {
