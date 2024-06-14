@@ -1,4 +1,4 @@
-import { Actor, Vector, Clock, Keys,} from "excalibur"
+import { Actor, Vector, Clock, Keys, } from "excalibur"
 import { Resources, ResourceLoader } from '../resources.js'
 import { Player } from "../Player.js"
 import { Attack1 } from './boss1Attacks.js'
@@ -7,8 +7,8 @@ import { playerVisual } from "../playerVisual.js"
 export class Boss1 extends Actor {
     attackSpeed = 200
     attackCD = 0
-    hp
-    maxHp
+    hp = 100
+    maxHp = 100
     constructor() {
         super({ width: Resources.Boss1.width, height: Resources.Boss1.height })
     }
@@ -23,22 +23,21 @@ export class Boss1 extends Actor {
     }
 
     attack(event, attackNumber) {
-        this.attackPattern;
-        if (event.other instanceof playerVisual) {
-            if (this.attackCD >= this.attackSpeed) {
-                if (attackNumber <= 9) {
-                    this.attackPattern = new Attack1(this.pos.x, this.pos.y, event.other)
-                    this.scene.add(this.attackPattern)
-                    this.attackCD = 0
-                } else {
-                    this.actions.moveTo(event.other.pos, 750)
-                    this.attackCD = 100
-                }
+        // this.attackPattern;
+        // if (event.other instanceof playerVisual) {
+        //     if (this.attackCD >= this.attackSpeed) {
+        //         if (attackNumber <= 9) {
+        //             this.attackPattern = new Attack1(this.pos.x, this.pos.y, event.other)
+        //             this.scene.add(this.attackPattern)
+        //             this.attackCD = 0
+        //         } else {
+        //             this.actions.moveTo(event.other.pos, 750)
+        //             this.attackCD = 100
+        //         }
 
 
-            }
-        }
-
+        //     }
+        // }
     }
 
     onPostUpdate() {
