@@ -3,10 +3,11 @@ import { Resources } from './resources.js';
 
 
 export class Item {
-    constructor(name, description, imagePath) {
+    constructor(name, description, imagePath, imageName) {
         this.name = name;
         this.description = description;
         this.image = imagePath;
+        this.imageName = imageName;
 
         
     }
@@ -18,7 +19,7 @@ export class Item {
 
 export class HealthPotion extends Item {
     constructor() {
-        super("Health Potion", "Restores health", Resources.apple);//, Resources.apple
+        super("Health Potion", "Restores health", Resources.apple, 'apple');//, Resources.apple
         
     }
 
@@ -32,7 +33,7 @@ export class HealthPotion extends Item {
 
 export class Sword extends Item {
     constructor() {
-        super("Sword", "A sharp blade", Resources.sword);
+        super("Sword", "A sharp blade", Resources.sword, 'sword');
     }
 
     use(character) {
