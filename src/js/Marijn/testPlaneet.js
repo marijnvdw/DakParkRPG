@@ -10,8 +10,8 @@ import { playerVisual } from '../playerVisual.js';
 export class testPlaneet extends Scene {
     constructor() {
         super();
-        this.characterVisual = new playerVisual();
         this.character = new Player();
+        this.characterVisual = new playerVisual()
 
         Resources.ClassroomMap.addToScene(this);
 
@@ -62,10 +62,8 @@ export class testPlaneet extends Scene {
                 console.error('Error loading image source:', error);
             });
 
-
-
             itemActor.on('collisionstart', (evt) => {
-                if (evt.other === this.character) {
+                if (evt.other === this.characterVisual) {
                     this.character.addItemToInventory(itemData.item);
                     itemActor.kill();  // Remove item from scene
                 }
