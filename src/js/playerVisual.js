@@ -64,5 +64,4 @@ export class playerVisual extends Actor {
             this.dash = true;
         }
     }
-
 }

@@ -1,5 +1,5 @@
 import '../css/style.css';
-import { Actor, Engine, Vector, Label, Font, FontUnit, Color } from "excalibur";
+import { Actor, Engine, Vector, Label, Font, FontUnit, Color, FadeInOut } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
 import { introScreen } from './introScreen.js';  // Ensure this matches the actual filename
 import { outroScreen } from './outroScreen.js';
@@ -18,14 +18,19 @@ export class Game extends Engine {
     }
 
     startGame() {
-        this.add('introScreen', new introScreen())
-        this.add('planet1', new planet1())
-        this.add('planet2', new planet2())
-        this.add('planet3', new planet3())
-        this.add('testPlaneet', new testPlaneet())
-        this.add('outroScreen', new outroScreen())
-        //this.goToScene('introScreen')
-        this.goToScene('testPlaneet')
+        let transitions = {
+            out: new FadeInOut({ duration: 400, direction: 'out', color: Color.Black }),
+            in: new FadeInOut({ duration: 400, direction: 'in', color: Color.Black })
+        }
+
+        this.add('introScreen', { scene: new introScreen(), transitions })
+        this.add('planet1', { scene: new planet1(), transitions })
+        this.add('planet2', { scene: new planet2(), transitions })
+        this.add('planet3', { scene: new planet3(), transitions })
+        this.add('testPlaneet', { scene: new testPlaneet(), transitions })
+        this.add('outroScreen', { scene: new outroScreen(), transitions })
+        this.goToScene('introScreen')
+        //this.goToScene('testPlaneet')
     }
 }
 

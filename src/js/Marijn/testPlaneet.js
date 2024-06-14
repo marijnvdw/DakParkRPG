@@ -10,7 +10,8 @@ import { playerVisual } from '../playerVisual.js';
 export class testPlaneet extends Scene {
     constructor() {
         super();
-        this.character = new playerVisual();
+        this.characterVisual = new playerVisual();
+        this.character = new Player();
 
         Resources.ClassroomMap.addToScene(this);
 
@@ -25,6 +26,7 @@ export class testPlaneet extends Scene {
 
     onActivate() {
         this.add(this.character);
+        this.add(this.characterVisual);
 
         // let inventory = new Actor
         // inventory.sprite = Resources.inventory.toSprite()

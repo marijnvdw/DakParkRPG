@@ -45,6 +45,4 @@ export class Player extends Actor {
             console.log(`- ${item.name}: ${item.description}`);
         });
     }
-
-
 }
