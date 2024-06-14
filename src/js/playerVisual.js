@@ -6,8 +6,6 @@ import { Attack1 } from "./Sem/boss1Attacks.js";
 export class playerVisual extends Actor {
     dash = true;
     dashCD = 0;
-    hp = 50
-    maxHp = 50
 
     constructor() {
         super({ width: Resources.Player.width, height: Resources.Player.height });
