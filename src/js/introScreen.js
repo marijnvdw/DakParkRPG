@@ -1,7 +1,7 @@
 import '../css/style.css';
 import { Actor, Vector, Label, Font, FontUnit, Color, Scene } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
-import { Player } from './Player.js';
+import { playerVisual } from './playerVisual.js';
 import { Boss1 } from './Sem/boss1.js';
 
 
@@ -27,7 +27,7 @@ export class introScreen extends Scene {
         beachPlanet.graphics.flipHorizontal = true
         this.add(beachPlanet)
 
-        let player = new Player
+        let player = new playerVisual
         player.pos = new Vector(100, window.innerHeight / 2)
         player.anchor = new Vector(0, 0.5)
         player.actions.moveTo(new Vector(1070, 330), 300)

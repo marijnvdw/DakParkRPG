@@ -4,13 +4,13 @@ import { Resources, ResourceLoader } from '../resources.js';
 import { Player } from '../Player.js';
 import { HealthPotion, Sword } from "../Item.js";
 import { HotBar } from '../UI.js'
-
+import { playerVisual } from '../playerVisual.js';
 
 
 export class testPlaneet extends Scene {
     constructor() {
         super();
-        this.character = new Player();
+        this.character = new playerVisual();
 
         Resources.ClassroomMap.addToScene(this);
 
@@ -42,7 +42,7 @@ export class testPlaneet extends Scene {
         this.add(this.hotBar);
 
         this.items.forEach((itemData) => {
-            
+
             const itemActor = new Actor({
                 pos: new Vector(itemData.x, itemData.y),
                 width: 32,
@@ -62,7 +62,6 @@ export class testPlaneet extends Scene {
 
 
 
-        
             itemActor.on('collisionstart', (evt) => {
                 if (evt.other === this.character) {
                     this.character.addItemToInventory(itemData.item);
