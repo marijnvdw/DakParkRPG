@@ -1,4 +1,4 @@
-import { HotBar} from './UI.js'
+import { HotBar } from './UI.js'
 
 export class Inventory {
     constructor() {
@@ -7,7 +7,8 @@ export class Inventory {
 
     addItem(item) {
         this.items.push(item);
-        HotBar.updateHotBarItems()
+        //this.HotBar.updateHotBarItems()
+        // this.UI.updateHotBarItems()
     }
 
     removeItem(item) {

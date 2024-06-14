@@ -14,26 +14,24 @@ export class Player extends Actor {
     }
 
     onInitialize(engine) {
+        this.sprite = Resources.Player.toSprite();
+        this.graphics.use(this.sprite);
+        this.scale = new Vector(0.25, 0.25);
+        this.pos = new Vector(300, 300);
+        //  this.on("collisionstart", (event) => this.interact(event))
+        let hotBar = new HotBar
+
         engine.input.keyboard.on('press', (evt) => {
             if (evt.key === Keys.I) {
                 this.logInventory();
+                this.scene.hotBar.OnKeyPress(); // Update HotBar
             }
         });
     }
 
-    interact(event) {
-        // console.log("hihi")
-        // if (event.other === Attack1) {
-        //     this.hp = this.hp - event.other.dmg
-        //     console.log(this.hp)
-        // }
-    }
-
     addItemToInventory(item) {
         this.inventory.addItem(item);
-        // if (this.hotBar) {
-        //     this.hotBar.updateHotBarItems(); // Update HotBar
-        // }
+        
     }
 
     useItemFromInventory(item) {
