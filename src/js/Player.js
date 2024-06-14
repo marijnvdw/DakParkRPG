@@ -12,10 +12,6 @@ export class Player extends Actor {
     }
 
     onInitialize(engine) {
-        this.sprite = Resources.Player.toSprite();
-        this.graphics.use(this.sprite);
-        this.scale = new Vector(0.25, 0.25);
-        this.pos = new Vector(300, 300);
         //  this.on("collisionstart", (event) => this.interact(event))
         let hotBar = new HotBar
 
@@ -29,7 +25,6 @@ export class Player extends Actor {
 
     addItemToInventory(item) {
         this.inventory.addItem(item);
-        
     }
 
     useItemFromInventory(item) {
