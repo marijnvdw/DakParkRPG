@@ -1,7 +1,8 @@
-import { Actor, Vector, Clock, Keys } from "excalibur"
+import { Actor, Vector, Clock, Keys,} from "excalibur"
 import { Resources, ResourceLoader } from '../resources.js'
 import { Player } from "../Player.js"
 import { Attack1 } from './boss1Attacks.js'
+import { playerVisual } from "../playerVisual.js"
 
 export class Boss1 extends Actor {
     attackSpeed = 200
@@ -23,7 +24,7 @@ export class Boss1 extends Actor {
 
     attack(event, attackNumber) {
         this.attackPattern;
-        if (event.other instanceof Player) {
+        if (event.other instanceof playerVisual) {
             if (this.attackCD >= this.attackSpeed) {
                 if (attackNumber <= 9) {
                     this.attackPattern = new Attack1(this.pos.x, this.pos.y, event.other)
