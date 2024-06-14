@@ -2,10 +2,13 @@ import { Actor, Vector, Keys } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
 import { Attack1 } from "./Sem/boss1Attacks.js";
+import { Attack } from "./Sil/playerProjectile.js";
 
 export class playerVisual extends Actor {
     dash = true;
     dashCD = 0;
+    attackSpeed = 200
+    attackCD = 0
 
     constructor() {
         super({ width: Resources.Player.width, height: Resources.Player.height });
@@ -19,9 +22,17 @@ export class playerVisual extends Actor {
         this.pos = new Vector(300, 300);
         //  this.on("collisionstart", (event) => this.interact(event))
 
+        engine.input.pointers.primary.on('down', (event) => {
+            console.log('hihi')
+            this.Attack(event)
+        });
     }
 
     onPostUpdate(engine) {
+
+        if (this.attackCD < this.attackSpeed) {
+            this.attackCD++
+        }
         let kb = engine.input.keyboard;
 
         //movement
@@ -60,6 +71,16 @@ export class playerVisual extends Actor {
         } else {
             this.dashCD = 0;
             this.dash = true;
+        }
+    }
+
+    Attack(event) {
+        console.log('sem')
+        if (this.attackCD >= this.attackSpeed) {
+            this.PlayerAttack = new Attack(this.pos.x, this.pos.y,)
+            this.scene.add(this.PlayerAttack)
+            this.attackCD = 0
+            console.log('maaike')
         }
     }
 }
