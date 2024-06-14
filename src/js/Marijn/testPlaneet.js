@@ -5,13 +5,14 @@ import { Player } from '../Player.js';
 import { HealthPotion, Sword } from "../Item.js";
 import { HotBar } from '../UI.js'
 import { playerVisual } from '../playerVisual.js';
-
+import { NPC } from '../npc.js'
 
 export class testPlaneet extends Scene {
     constructor() {
         super();
         this.character = new Player();
         this.characterVisual = new playerVisual()
+        this.Npc = new NPC
 
         Resources.ClassroomMap.addToScene(this);
 
@@ -27,6 +28,7 @@ export class testPlaneet extends Scene {
     onActivate() {
         this.add(this.character);
         this.add(this.characterVisual);
+        this.add(this.Npc);
 
         // let inventory = new Actor
         // inventory.sprite = Resources.inventory.toSprite()

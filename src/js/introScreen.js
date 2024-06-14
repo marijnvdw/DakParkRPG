@@ -1,7 +1,7 @@
 import '../css/style.css';
 import { Actor, Vector, Label, Font, FontUnit, Color, Scene, RotationType, FadeInOut } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
-import { Boss1 } from './Sem/boss1.js';
+import { NPC } from './npc.js'
 
 
 export class introScreen extends Scene {
@@ -11,9 +11,8 @@ export class introScreen extends Scene {
     }
 
     onInitialize() {
-        let transitions = {
-            in: new FadeInOut({ duration: 400, direction: 'out', color: Color.Black })
-        }
+
+
 
         const bg = new Actor({
             pos: new Vector(0, 0),
@@ -39,7 +38,7 @@ export class introScreen extends Scene {
             anchor: new Vector(0, 0.5),
         })
         player.graphics.use(Resources.Player.toSprite())
-        player.actions.moveTo(new Vector(1070, 330), 300)
+        player.actions.moveTo(new Vector(1120, 330), 300)
         player.actions.scaleTo(new Vector(0.05, 0.05), new Vector(0.5, 0.5)).die()
         this.add(player)
 
@@ -54,9 +53,5 @@ export class introScreen extends Scene {
 
     sceneSwitch() {
         this.engine.goToScene('testPlaneet')
-    }
-
-    onTransition() {
-
     }
 }
