@@ -21,12 +21,12 @@ export class NPC extends Actor {
 
         this.text = new Label({
             text: "",
-            anchor: new Vector(0, 0),
             pos: new Vector(window.innerWidth / 2, 50),
             font: new Font({
                 size: 24
             })
         });
+        this.text.anchor = new Vector(0.5, 0.5)
         this.scene.add(this.text)
 
         interactRange.on('collisionstart', (event) => this.interacting = true)
