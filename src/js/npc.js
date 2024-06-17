@@ -21,6 +21,7 @@ export class NPC extends Actor {
 
         this.text = new Label({
             text: "",
+            anchor: new Vector(0, 0),
             pos: new Vector(window.innerWidth / 2, 50),
             font: new Font({
                 size: 24
@@ -42,10 +43,10 @@ export class NPC extends Actor {
             this.dialogOption++
             switch (this.dialogOption) {
                 case 1:
-                    this.text.text = 'Text 1'
+                    this.text.text = 'After the universal glitch a giant crab started running\nrampant across our lands.'
                     break;
                 case 2:
-                    this.text.text = 'Text 2'
+                    this.text.text = 'If you can find a trident and bring it to me\nyou might be able to beat him.'
                     break;
             }
         }
