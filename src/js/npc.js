@@ -1,9 +1,10 @@
 import '../css/style.css';
-import { Actor, Vector, Label, Font, FontUnit, Color, Scene, Keys } from "excalibur";
+import { Actor, Vector, Keys, Text, Engine, Label, Font, FontUnit, Color, Scene } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
 
 
 export class NPC extends Actor {
+    interacting
     constructor() {
         super();
     }
@@ -16,15 +17,21 @@ export class NPC extends Actor {
         let interactRange = new Actor({ radius: 100 })
         this.addChild(interactRange)
 
-        // interactRange.on('precollision', (event) => this.attack(event))
+        this.text = new Text({
+            text: 'Some Text Drawn Here\nNext line'
+
+        });
+
+        interactRange.on('collisionstart', (event) => this.interacting = true)
     }
 
     onPostUpdate(engine) {
-        let kb = engine.input.keyboard;
+        let kb = this.scene.engine.input.keyboard;
 
-        //movement
-        if (kb.isHeld(Keys.E)) {
-
+        if (kb.isHeld(Keys.E) && this.interacting) {
+            console.log(this.interacting)
+            this.interacting = false
+            this.graphics.use(this.text)
         }
     }
 }
