@@ -30,12 +30,8 @@ export class Attack1 extends Actor {
     }
 
     doDmg(event) {
-        console.log(this.scene)
-        console.log("player: " + this.scene.actors[0])
-        console.log("Je gaat damage nemen als speler")
         if (event.other instanceof playerVisual) {
             this.scene.actors[0].hp = this.scene.actors[0].hp - this.dmg
-            console.log(this.scene.actors[0].hp)
             if (this.scene.actors[0].hp <= 0) {
                 event.other.kill()
                 this.scene.engine.goToScene("outroScreen")

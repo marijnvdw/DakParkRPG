@@ -5,8 +5,8 @@ import { Attack1 } from "./Sem/boss1Attacks.js";
 import { HotBar } from './UI.js'
 
 export class Player extends Actor {
-    hp = 50
-    maxHp = 50
+    hp = 20
+    maxHp = 20
 
     constructor() {
         super({ width: Resources.Player.width, height: Resources.Player.height });
