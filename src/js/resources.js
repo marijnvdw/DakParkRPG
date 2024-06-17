@@ -16,6 +16,7 @@ const Resources = {
     //Sil
 
     //Maaike
+    planet1back: new TiledResource('images/Maaike/Planet1-backrgound.tmx'),//C:\Users\mvdwa\DakParkRPG\public\images\Maaike\Planet1-backrgound.tmx
 
     //Marijn
     ClassroomMap: new TiledResource('images/Marijn/NewMap.tmx'),
