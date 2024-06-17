@@ -11,7 +11,7 @@ export class testPlaneet extends Scene {
     constructor() {
         super();
         this.character = new Player();
-        this.characterVisual = new playerVisual()
+        this.characterVisual = new playerVisual(this.character)
         this.Npc = new NPC
 
         Resources.planet1back.addToScene(this);
@@ -36,11 +36,11 @@ export class testPlaneet extends Scene {
 
         // //HotBarItems
 
-        
+
         this.hotBar = new HotBar(this.character); // Create HotBar instance
         this.add(this.hotBar);
 
-        
+
 
         this.items.forEach((itemData) => {
 

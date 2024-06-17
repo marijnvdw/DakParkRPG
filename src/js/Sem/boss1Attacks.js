@@ -31,8 +31,8 @@ export class Attack1 extends Actor {
 
     doDmg(event) {
         if (event.other instanceof playerVisual) {
-            this.scene.actors[0].hp = this.scene.actors[0].hp - this.dmg
-            if (this.scene.actors[0].hp <= 0) {
+            event.other.player.hp -= this.dmg
+            if (event.other.player.hp <= 0) {
                 event.other.kill()
                 this.scene.engine.goToScene("outroScreen")
             }

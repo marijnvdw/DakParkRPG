@@ -1,4 +1,4 @@
-import { Actor, Vector, Keys, CollisionType } from "excalibur";
+import { Actor, Vector, Keys } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
 import { Attack1 } from "./Sem/boss1Attacks.js";
@@ -12,21 +12,22 @@ export class playerVisual extends Actor {
     LastDirectionHorizontal = 0
     LastDirectionVertical = 0
 
-    constructor() {
-        super({ width: Resources.Player.width / 4, height: Resources.Player.height / 4 });
+    constructor(player) {
+        super({ width: Resources.Player.width / 1.5, height: Resources.Player.height / 1.5 });
         this.inventory = new Inventory();
-        //CollisionType = true
+        this.player = player
     }
 
     onInitialize(engine) {
         this.sprite = Resources.Player.toSprite();
         this.graphics.use(this.sprite);
-        this.scale = new Vector(0.25, 0.25);
+        this.scale = new Vector(0.5, 0.5);
         this.pos = new Vector(300, 300);
         //  this.on("collisionstart", (event) => this.interact(event))
 
         engine.input.pointers.primary.on('down', (event) => {
             this.Attack(event)
+
         });
     }
 
