@@ -23,12 +23,14 @@ export class playerVisual extends Actor {
         //  this.on("collisionstart", (event) => this.interact(event))
 
         engine.input.pointers.primary.on('down', (event) => {
-            console.log('hihi')
             this.Attack(event)
+            console.log(this.scene)
         });
     }
 
     onPostUpdate(engine) {
+        let LastDirectionHorizontal = 0
+        let LastDirectionVertical = 0
 
         if (this.attackCD < this.attackSpeed) {
             this.attackCD++
@@ -38,16 +40,23 @@ export class playerVisual extends Actor {
         //movement
         if (kb.isHeld(Keys.W)) {
             this.pos.y -= 0.7;
+            this.LastDirectionVertical = 1
         }
         if (kb.isHeld(Keys.A)) {
             this.pos.x -= 0.7;
+            this.LastDirectionHorizontal = 1
         }
         if (kb.isHeld(Keys.S)) {
             this.pos.y += 0.7;
+            this.LastDirectionVertical = -1
         }
         if (kb.isHeld(Keys.D)) {
             this.pos.x += 0.7;
+            this.LastDirectionHorizontal = -1
         }
+
+
+
 
         //dash mechanic
         if (kb.wasPressed(Keys.Space) && this.dash === true) {
@@ -75,12 +84,10 @@ export class playerVisual extends Actor {
     }
 
     Attack(event) {
-        console.log('sem')
         if (this.attackCD >= this.attackSpeed) {
             this.PlayerAttack = new Attack(this.pos.x, this.pos.y,)
             this.scene.add(this.PlayerAttack)
             this.attackCD = 0
-            console.log('maaike')
         }
     }
 }

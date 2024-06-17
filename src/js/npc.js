@@ -1,5 +1,5 @@
 import '../css/style.css';
-import { Actor, Vector, Label, Font, FontUnit, Color, Scene } from "excalibur";
+import { Actor, Vector, Label, Font, FontUnit, Color, Scene, Keys } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
 
 
@@ -16,7 +16,7 @@ export class NPC extends Actor {
         let interactRange = new Actor({ radius: 100 })
         this.addChild(interactRange)
 
-        interactRange.on('precollision', (event) => this.attack(event))
+        // interactRange.on('precollision', (event) => this.attack(event))
     }
 
     onPostUpdate(engine) {
