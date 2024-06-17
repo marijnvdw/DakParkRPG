@@ -1,5 +1,5 @@
 import '../css/style.css';
-import { Actor, Engine, Vector, Label, Font, FontUnit, Color, FadeInOut } from "excalibur";
+import { Actor, Engine, Vector, Label, Font, FontUnit, Color, FadeInOut, ArcadeSolver } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
 import { introScreen } from './introScreen.js';  // Ensure this matches the actual filename
 import { outroScreen } from './outroScreen.js';
@@ -11,8 +11,11 @@ import { homeBase } from './homeBase.js';
 
 export class Game extends Engine {
 
+
     constructor() {
-        super({ width: window.innerWidth, height: window.innerHeight })
+        super({
+            width: window.innerWidth, height: window.innerHeight,
+        })
         this.start(ResourceLoader).then(() => this.startGame())
         this.debugMode = true
     }
