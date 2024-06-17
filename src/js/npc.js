@@ -5,7 +5,7 @@ import { Resources, ResourceLoader } from './resources.js';
 
 export class NPC extends Actor {
     interacting = false
-    dialogOption = 0
+    dialogOptionInt = 0
     questReceived
     constructor() {
         super();
@@ -21,9 +21,10 @@ export class NPC extends Actor {
 
         this.text = new Label({
             text: "",
-            pos: new Vector(window.innerWidth / 2, 50),
+            pos: new Vector(window.innerWidth / 2, window.innerHeight - 100),
             font: new Font({
-                size: 24
+                size: 24,
+                color: Color.White
             })
         });
         this.text.anchor = new Vector(0.5, 0.5)
@@ -40,15 +41,22 @@ export class NPC extends Actor {
 
     interact() {
         if (this.interacting === true) {
-            this.dialogOption++
-            switch (this.dialogOption) {
+
+            this.dialogOptionInt++
+            switch (this.dialogOptionInt) {
                 case 1:
                     this.text.text = 'After the universal glitch a giant crab started running\nrampant across our lands.'
                     break;
                 case 2:
                     this.text.text = 'If you can find a trident and bring it to me\nyou might be able to beat him.'
                     break;
+                case 3:
+                    this.text.text = ''
+                    break;
             }
+
+
+
         }
     }
 }
