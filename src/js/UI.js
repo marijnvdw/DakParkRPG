@@ -22,14 +22,15 @@ export class HotBar extends ScreenElement {
     OnKeyPress() {
         if (!this.activeInv) {
             this.activeInv = true
+            console.log('${this.scene.items}')
             console.log(this.scene.items)
             console.log(this.scene.character.inventory.items)
-            //console.log(this.scene.items[])
+            console.log(this.scene.character.inventory.items[0].scaleTexture)
             for (let i = 0; i < this.scene.character.inventory.items.length; i++) {
                 console.log(this.scene.character.inventory.items[i].image)
                 const hotBarItem = new HotBarItems();
                 this.scene.add(hotBarItem);
-                hotBarItem.updateHotBarItems(this.scene.character.inventory.items[i].image);
+                hotBarItem.updateHotBarItems(this.scene.character.inventory.items[i].image, this.scene.character.inventory.items[i].scaleTexture, i);
             }
         } else {
             //this.hotBarItem.kill()
@@ -49,14 +50,17 @@ export class HotBarItems extends ScreenElement {
         console.log('hi')
     }
 
-    updateHotBarItems(path) {
+    updateHotBarItems(path, scaleTexture, invPos) {
         console.log(path)
+        console.log(scaleTexture)
         this.graphics.use(path.toSprite());
-        this.scale = new Vector(0.1, 0.1);
+        this.scale = scaleTexture;
         this.anchor = new Vector(0.5, 0.5);
-        this.pos = new Vector((window.innerWidth / 2) / 9 * this.scene.items.length, window.innerHeight - 30);
+        this.pos = new Vector((window.innerWidth / 2) - 190 + (47 * invPos) , window.innerHeight - 30);
     }
 }
+//* this.scene.items.length
+// 437 
 
 export class HpBar extends ScreenElement {
     onInitialize(engine) {

@@ -14,7 +14,7 @@ export class testPlaneet extends Scene {
         this.characterVisual = new playerVisual()
         this.Npc = new NPC
 
-        Resources.ClassroomMap.addToScene(this);
+        Resources.planet1back.addToScene(this);
 
         this.items = [
             { item: new HealthPotion(), x: 300, y: 100 },
@@ -36,13 +36,11 @@ export class testPlaneet extends Scene {
 
         // //HotBarItems
 
-        // let inventoryItems = new Actor
-        // inventory.sprite = Resources.inventory.toSprite()
-        // inventory.pos = new Vector(700, 900)
-        // this.add(inventory)
-
+        
         this.hotBar = new HotBar(this.character); // Create HotBar instance
         this.add(this.hotBar);
+
+        
 
         this.items.forEach((itemData) => {
 
@@ -72,6 +70,11 @@ export class testPlaneet extends Scene {
 
             this.add(itemActor);
         });
+
+        // let inventoryItems = new Actor
+        // inventoryItems.sprite = Resources.Cloud.toSprite()
+        // inventoryItems.pos = new Vector(800, 900)
+        // this.add(inventoryItems)
     }
 
 

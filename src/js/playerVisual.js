@@ -1,4 +1,4 @@
-import { Actor, Vector, Keys } from "excalibur";
+import { Actor, Vector, Keys, CollisionType } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
 import { Attack1 } from "./Sem/boss1Attacks.js";
@@ -13,6 +13,7 @@ export class playerVisual extends Actor {
     constructor() {
         super({ width: Resources.Player.width, height: Resources.Player.height });
         this.inventory = new Inventory();
+        //CollisionType = true
     }
 
     onInitialize(engine) {
