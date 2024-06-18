@@ -12,10 +12,12 @@ const Resources = {
     BeachPlanet: new ImageSource('images/Sem/beachPlanet.png'),
     Cloud: new ImageSource('images/Sem/cloud.png'),
     Galaxy: new ImageSource('images/Sem/galaxy.jpg'),
+    Portal: new ImageSource('images/Sem/portal.png'),
 
     //Sil
 
     //Maaike
+    planet1back: new TiledResource('images/Maaike/Planet1-backrgound.tmx'),//C:\Users\mvdwa\DakParkRPG\public\images\Maaike\Planet1-backrgound.tmx
 
     //Marijn
     ClassroomMap: new TiledResource('images/Marijn/NewMap.tmx'),

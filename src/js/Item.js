@@ -1,15 +1,15 @@
-import { Resource, ImageSource  } from "excalibur";
+import { Resource, ImageSource, Vector  } from "excalibur";
 import { Resources } from './resources.js';
+import { vector } from "excalibur/build/dist/Util/DrawUtil.js";
 
 
 export class Item {
-    constructor(name, description, imagePath, imageName) {
+    constructor(name, description, imagePath, imageName, scaleTexture) {
         this.name = name;
         this.description = description;
         this.image = imagePath;
         this.imageName = imageName;
-
-        
+        this.scaleTexture = scaleTexture;
     }
 
     use(character) {
@@ -19,7 +19,7 @@ export class Item {
 
 export class HealthPotion extends Item {
     constructor() {
-        super("Health Potion", "Restores health", Resources.apple, 'apple');//, Resources.apple
+        super("Health Potion", "Restores health", Resources.apple, 'apple', new Vector(0.05,0.05));//, Resources.apple
         
     }
 
@@ -33,7 +33,7 @@ export class HealthPotion extends Item {
 
 export class Sword extends Item {
     constructor() {
-        super("Sword", "A sharp blade", Resources.sword, 'sword');
+        super("Sword", "A sharp blade", Resources.sword, 'sword', new Vector(0.02,0.02));
     }
 
     use(character) {

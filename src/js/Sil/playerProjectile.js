@@ -19,21 +19,24 @@ export class Attack extends Actor {
         this.sprite = Resources.Boss1.toSprite()
         this.graphics.use(this.sprite)
         this.scale = new Vector(0.4, 0.4)
-        this.pos = new Vector(300, 300)
-        this.vel = new Vector(this.scene.actors[0].LastDirectionHorizontal, this.scene.actors[0].LastDirectionVertical)
-        this.speed = 100
         this.dmg = 10
         // const player = this.scene.Player
         console.log('yalla')
 
 
         this.on('collisionstart', (event) => this.doDmg(event))
-        this.actions.scaleTo(new Vector(1.3, 1.3), new Vector(1.5, 1.5)).die()
+        console.log(this.scene.actors[2].pos.x, this.scene.actors[2].pos.y)
+        this.actions.moveTo(this.scene.actors[2].pos.x, this.scene.actors[2].pos.y, 600)
+        setTimeout(() => {
+            this.kill()
+        }, 500)
+
+
     }
 
     doDmg(event) {
         if (event.other instanceof Boss1) {
-            this.scene.actors.hp = this.scene.actors[2].hp - this.dmg
+            this.scene.actors[2].hp = this.scene.actors[2].hp - this.dmg
             console.log(this.scene.actors[2].hp)
             if (this.scene.actors[2].hp <= 0) {
                 event.other.kill()

@@ -1,17 +1,18 @@
-import { Actor, Vector, Keys } from "excalibur";
+import { Actor, Vector, Keys, CollisionType } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
 import { Attack1 } from "./Sem/boss1Attacks.js";
 import { HotBar } from './UI.js'
 
 export class Player extends Actor {
-    hp = 50
-    maxHp = 50
+    hp = 2000
+    maxHp = 2000
 
     constructor() {
         super({ width: Resources.Player.width, height: Resources.Player.height });
         this.inventory = new Inventory();
-    }
+        //CollisionType = true
+    }// colision type true
 
     onInitialize(engine) {
         //  this.on("collisionstart", (event) => this.interact(event))

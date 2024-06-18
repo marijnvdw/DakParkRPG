@@ -23,21 +23,20 @@ export class Boss1 extends Actor {
     }
 
     attack(event, attackNumber) {
-        // this.attackPattern;
-        // if (event.other instanceof playerVisual) {
-        //     if (this.attackCD >= this.attackSpeed) {
-        //         if (attackNumber <= 9) {
-        //             this.attackPattern = new Attack1(this.pos.x, this.pos.y, event.other)
-        //             this.scene.add(this.attackPattern)
-        //             this.attackCD = 0
-        //         } else {
-        //             this.actions.moveTo(event.other.pos, 750)
-        //             this.attackCD = 100
-        //         }
-
-
-        //     }
-        // }
+        this.attackPattern;
+        if (event.other instanceof playerVisual) {
+            if (this.attackCD >= this.attackSpeed) {
+                if (attackNumber <= 9) {
+                    this.attackPattern = new Attack1(this.pos.x, this.pos.y, event.other)
+                    this.scene.add(this.attackPattern)
+                    this.attackCD = 0
+                } else {
+                    this.actions.moveTo(event.other.pos, 750)
+                    this.attackCD = 100
+                    console.log(this.pos)
+                }
+            }
+        }
     }
 
     onPostUpdate() {
