@@ -30,6 +30,8 @@ export class Game extends Engine {
         this.hotBar = new HotBar(this.player); // Create HotBar instance
         this.add(this.hotBar);
 
+
+
         let transitions = {
             out: new FadeInOut({ duration: 400, direction: 'out', color: Color.Black }),
             in: new FadeInOut({ duration: 400, direction: 'in', color: Color.Black })

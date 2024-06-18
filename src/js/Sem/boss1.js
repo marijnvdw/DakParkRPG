@@ -1,4 +1,4 @@
-import { Actor, Vector, Clock, Keys, } from "excalibur"
+import { Actor, Vector, Clock, Keys, Color } from "excalibur"
 import { Resources, ResourceLoader } from '../resources.js'
 import { Player } from "../Player.js"
 import { Attack1 } from './boss1Attacks.js'
@@ -14,7 +14,7 @@ export class Boss1 extends Actor {
     }
 
     onInitialize() {
-        this.sprite = Resources.Boss1.toSprite()
+        this.sprite = Resources.Krab.toSprite()
         this.graphics.use(this.sprite)
         this.pos = new Vector(600, 600)
         let rangeDetector = new Actor({ radius: 5000 })
@@ -31,7 +31,11 @@ export class Boss1 extends Actor {
                     this.scene.add(this.attackPattern)
                     this.attackCD = 0
                 } else {
-                    this.actions.moveTo(event.other.pos, 750)
+                    this.graphics.use()
+                    this.actions.moveTo(event.other.pos, 7500)
+                    // setTimeout(() => {
+                    this.graphics.use(this.sprite)
+                    // }, 100);
                     this.attackCD = 100
                     console.log(this.pos)
                 }

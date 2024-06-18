@@ -3,8 +3,6 @@ import { TiledResource } from '@excaliburjs/plugin-tiled';
 
 // voeg hier jouw eigen resources toe
 const Resources = {
-    Fish: new ImageSource('images/fish.png'),
-
     //Sem
     Player: new ImageSource('images/Sem/fPlayer.png'),
     NPC: new ImageSource('images/Sem/orb3.png'),
@@ -15,7 +13,8 @@ const Resources = {
     Portal: new ImageSource('images/Sem/portal.png'),
 
     //Sil
-
+    Krab: new ImageSource('images/Sil/krab.png'),
+    leeg: new ImageSource('images/Sil/leeg.png'),
     //Maaike
     planet1back: new TiledResource('images/Maaike/Planet1-backrgound.tmx'),//C:\Users\mvdwa\DakParkRPG\public\images\Maaike\Planet1-backrgound.tmx
 
