@@ -1,5 +1,5 @@
 import '../../css/style.css';
-import { Engine, Scene, Actor, Vector, Color, Sprite } from "excalibur";
+import { Engine, Scene, Actor, Vector, Color, Sprite, BoundingBox } from "excalibur";
 import { Resources, ResourceLoader } from '../resources.js';
 import { Player } from '../Player.js';
 import { HealthPotion, Sword } from "../Item.js";
@@ -20,6 +20,11 @@ export class testPlaneet extends Scene {
             { item: new HealthPotion(), x: 300, y: 100 },
             { item: new Sword(), x: 200, y: 200 }
         ];
+
+        console.log(this)
+        this.camera.strategy.lockToActor(this.characterVisual)
+        this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 2000, 1200))
+        this.camera.zoom = 1.1
 
 
     }

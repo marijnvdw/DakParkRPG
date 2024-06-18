@@ -8,6 +8,7 @@ import { planet1 } from './planet1.js';
 import { planet2 } from './planet2.js';
 import { planet3 } from './planet3.js';
 import { homeBase } from './homeBase.js';
+import { Player } from './Player.js';
 
 export class Game extends Engine {
 
@@ -15,12 +16,16 @@ export class Game extends Engine {
     constructor() {
         super({
             width: window.innerWidth, height: window.innerHeight,
+            
         })
         this.start(ResourceLoader).then(() => this.startGame())
         this.debugMode = true
     }
 
     startGame() {
+
+        
+
         let transitions = {
             out: new FadeInOut({ duration: 400, direction: 'out', color: Color.Black }),
             in: new FadeInOut({ duration: 400, direction: 'in', color: Color.Black })

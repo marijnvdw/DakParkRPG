@@ -11,7 +11,7 @@ export class playerVisual extends Actor {
     attackCD = 0
 
     constructor() {
-        super({ width: Resources.Player.width, height: Resources.Player.height });
+        super({ width: Resources.Player.width, height: Resources.Player.height, collisionType: CollisionType.Active });
         this.inventory = new Inventory();
         //CollisionType = true
     }
