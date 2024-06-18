@@ -12,10 +12,10 @@ export class playerVisual extends Actor {
     LastDirectionHorizontal = 0
     LastDirectionVertical = 0
 
-    constructor(player) {
+    constructor(Player) {
         super({ width: Resources.Player.width / 1.5, height: Resources.Player.height / 1.5 });
         this.inventory = new Inventory();
-        this.player = player
+        this.player = Player
     }
 
     onInitialize(engine) {
@@ -40,16 +40,16 @@ export class playerVisual extends Actor {
 
         //movement
         if (kb.isHeld(Keys.W)) {
-            this.pos.y -= 0.7;
+            this.pos.y -= 7.7;
         }
         if (kb.isHeld(Keys.A)) {
-            this.pos.x -= 0.7;
+            this.pos.x -= 7.7;
         }
         if (kb.isHeld(Keys.S)) {
-            this.pos.y += 0.7;
+            this.pos.y += 7.7;
         }
         if (kb.isHeld(Keys.D)) {
-            this.pos.x += 0.7;
+            this.pos.x += 7.7;
 
         }
 

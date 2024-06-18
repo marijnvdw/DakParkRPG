@@ -25,8 +25,8 @@ export class Attack extends Actor {
 
 
         this.on('collisionstart', (event) => this.doDmg(event))
-        console.log(this.scene.actors[2].pos.x, this.scene.actors[2].pos.y)
-        this.actions.moveTo(this.scene.actors[2].pos.x, this.scene.actors[2].pos.y, 600)
+        console.log(this.scene.actors[1].pos.x, this.scene.actors[1].pos.y)
+        this.actions.moveTo(this.scene.actors[1].pos.x, this.scene.actors[1].pos.y, 600)
         setTimeout(() => {
             this.kill()
         }, 500)
@@ -36,9 +36,10 @@ export class Attack extends Actor {
 
     doDmg(event) {
         if (event.other instanceof Boss1) {
-            this.scene.actors[2].hp = this.scene.actors[2].hp - this.dmg
-            console.log(this.scene.actors[2].hp)
-            if (this.scene.actors[2].hp <= 0) {
+            this.scene.actors[1].hp -= this.dmg
+            console.log(this.scene.actors[1].hp)
+            console.log(this.scene)
+            if (this.scene.actors[1].hp <= 0) {
                 event.other.kill()
                 this.scene.engine.goToScene("outroScreen")
             }

@@ -21,7 +21,6 @@ export class Portal extends Actor {
     }
 
     enterPortal() {
-
         this.scene.engine.goToScene('planet1')
     }
 }

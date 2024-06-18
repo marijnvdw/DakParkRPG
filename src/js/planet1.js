@@ -13,11 +13,9 @@ export class planet1 extends Scene {
     }
 
     onInitialize() {
-        let player = new Player
-        this.add(player)
-        let Visual = new playerVisual
+        let Visual = new playerVisual()
         this.add(Visual)
-        let boss = new Boss1
+        let boss = new Boss1()
         this.add(boss)
     }
 }
