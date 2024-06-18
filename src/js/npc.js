@@ -27,6 +27,7 @@ export class NPC extends Actor {
                 color: Color.White
             })
         });
+        this.text.z = 100
         this.text.anchor = new Vector(0.5, 0.5)
         this.scene.add(this.text)
 

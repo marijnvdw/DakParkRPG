@@ -16,6 +16,7 @@ export class playerVisual extends Actor {
         super({ width: Resources.Player.width / 1.5, height: Resources.Player.height / 1.5 });
         this.inventory = new Inventory();
         this.player = player
+        this.z = 50
     }
 
     onInitialize(engine) {

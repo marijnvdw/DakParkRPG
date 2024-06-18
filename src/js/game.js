@@ -33,7 +33,7 @@ export class Game extends Engine {
         this.add('testPlaneet', { scene: new testPlaneet(), transitions })
         this.add('outroScreen', { scene: new outroScreen(), transitions })
         //this.goToScene('introScreen')
-        this.goToScene('testPlaneet')
+        this.goToScene('introScreen')
     }
 }
 

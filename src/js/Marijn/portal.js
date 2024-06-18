@@ -21,7 +21,9 @@ export class Portal extends Actor {
     }
 
     enterPortal() {
-
+        this.scene.actors.forEach(actor => {
+            actor.kill()
+        })
         this.scene.engine.goToScene('planet1')
     }
 }
