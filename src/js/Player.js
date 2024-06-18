@@ -7,21 +7,20 @@ import { HotBar } from './UI.js'
 export class Player extends Actor {
     hp = 2000
     maxHp = 2000
-
-    constructor() {
+    constructor(hotbar) {
         super({ width: Resources.Player.width, height: Resources.Player.height });
         this.inventory = new Inventory();
-        //CollisionType = true
-    }// colision type true
+
+    }
 
     onInitialize(engine) {
         //  this.on("collisionstart", (event) => this.interact(event))
-        let hotBar = new HotBar
-
+        console.log('innit')
         engine.input.keyboard.on('press', (evt) => {
             if (evt.key === Keys.I) {
+                console.log(this.scene.hotBar)
                 this.logInventory();
-                this.scene.hotBar.OnKeyPress(); // Update HotBar
+                this.scene.engine.hotBar.OnKeyPress(); // Update HotBar
             }
         });
     }

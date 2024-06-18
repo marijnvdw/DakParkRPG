@@ -1,8 +1,9 @@
-import { Actor, Vector, Keys } from "excalibur";
+import { Actor, Vector, Keys, CollisionType } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
 import { Attack1 } from "./Sem/boss1Attacks.js";
 import { Attack } from "./Sil/playerProjectile.js";
+import { Player } from "./Player.js";
 
 export class playerVisual extends Actor {
     dash = true;
@@ -13,10 +14,9 @@ export class playerVisual extends Actor {
     LastDirectionVertical = 0
 
     constructor(player) {
-        super({ width: Resources.Player.width / 1.5, height: Resources.Player.height / 1.5 });
+        super({ width: Resources.Player.width / 1.5, height: Resources.Player.height / 1.5, collisionType: CollisionType.Active });
         this.inventory = new Inventory();
-        this.player = player
-        this.z = 50
+        this.player = Player
     }
 
     onInitialize(engine) {
@@ -41,16 +41,16 @@ export class playerVisual extends Actor {
 
         //movement
         if (kb.isHeld(Keys.W)) {
-            this.pos.y -= 0.7;
+            this.pos.y -= 7.7;
         }
         if (kb.isHeld(Keys.A)) {
-            this.pos.x -= 0.7;
+            this.pos.x -= 7.7;
         }
         if (kb.isHeld(Keys.S)) {
-            this.pos.y += 0.7;
+            this.pos.y += 7.7;
         }
         if (kb.isHeld(Keys.D)) {
-            this.pos.x += 0.7;
+            this.pos.x += 7.7;
 
         }
 

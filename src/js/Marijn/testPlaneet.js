@@ -1,5 +1,5 @@
 import '../../css/style.css';
-import { Engine, Scene, Actor, Vector, Color, Sprite } from "excalibur";
+import { Engine, Scene, Actor, Vector, Color, Sprite, BoundingBox } from "excalibur";
 import { Resources, ResourceLoader } from '../resources.js';
 import { Player } from '../Player.js';
 import { HealthPotion, Sword } from "../Item.js";
@@ -9,10 +9,11 @@ import { NPC } from '../npc.js'
 import { Portal } from './portal.js'
 
 export class testPlaneet extends Scene {
+
     constructor() {
         super();
-        this.character = new Player();
-        this.characterVisual = new playerVisual(this.character)
+        // this.character = player
+        this.characterVisual = new playerVisual()
         this.Npc = new NPC
         this.portal = new Portal
 
@@ -23,11 +24,15 @@ export class testPlaneet extends Scene {
             { item: new Sword(), x: 200, y: 200 }
         ];
 
+        console.log(this)
+        this.camera.strategy.lockToActor(this.characterVisual)
+        this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 2000, 1200))
+        this.camera.zoom = 1.1
+
 
     }
 
     onActivate() {
-        this.add(this.character);
         this.add(this.characterVisual);
         this.add(this.Npc);
         this.add(this.portal);
@@ -41,8 +46,9 @@ export class testPlaneet extends Scene {
 
 
 
-        this.hotBar = new HotBar(this.character); // Create HotBar instance
+        this.hotBar = new HotBar(this.engine.player); // Create HotBar instance
         this.add(this.hotBar);
+        console.log(this.hotBar)
 
 
 
@@ -68,7 +74,7 @@ export class testPlaneet extends Scene {
 
             itemActor.on('collisionstart', (evt) => {
                 if (evt.other === this.characterVisual) {
-                    this.character.addItemToInventory(itemData.item);
+                    this.engine.player.addItemToInventory(itemData.item);
                     itemActor.kill();  // Remove item from scene
                 }
             });
