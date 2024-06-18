@@ -28,8 +28,6 @@ export class testPlaneet extends Scene {
         this.camera.strategy.lockToActor(this.characterVisual)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 2000, 1200))
         this.camera.zoom = 1.1
-
-
     }
 
     onActivate() {

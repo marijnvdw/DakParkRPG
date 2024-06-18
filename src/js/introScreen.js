@@ -21,7 +21,7 @@ export class introScreen extends Scene {
         bg.graphics.use(Resources.Galaxy.toSprite())
         this.add(bg)
 
-        this.engine.clock.schedule(() => this.sceneSwitch(), 500)
+        this.engine.clock.schedule(() => this.sceneSwitch(), 5000)
 
         let beachPlanet = new Actor({
             pos: new Vector(window.innerWidth - 180, window.innerHeight / 2)
@@ -52,6 +52,6 @@ export class introScreen extends Scene {
     }
 
     sceneSwitch() {
-        this.engine.goToScene('planet1')
+        this.engine.goToScene('testPlaneet')
     }
 }
