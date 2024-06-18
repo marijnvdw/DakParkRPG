@@ -12,6 +12,7 @@ const Resources = {
     BeachPlanet: new ImageSource('images/Sem/beachPlanet.png'),
     Cloud: new ImageSource('images/Sem/cloud.png'),
     Galaxy: new ImageSource('images/Sem/galaxy.jpg'),
+    Portal: new ImageSource('images/Sem/portal.png'),
 
     //Sil
 

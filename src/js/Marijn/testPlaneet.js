@@ -6,18 +6,20 @@ import { HealthPotion, Sword } from "../Item.js";
 import { HotBar } from '../UI.js'
 import { playerVisual } from '../playerVisual.js';
 import { NPC } from '../npc.js'
+import { Portal } from './portal.js'
 
 export class testPlaneet extends Scene {
     constructor() {
         super();
         this.character = new Player();
-        this.characterVisual = new playerVisual()
+        this.characterVisual = new playerVisual(this.character)
         this.Npc = new NPC
+        this.portal = new Portal
 
         Resources.planet1back.addToScene(this);
 
         this.items = [
-            { item: new HealthPotion(), x: 300, y: 100 },
+            { item: new HealthPotion(), x: 300, y: 800 },
             { item: new Sword(), x: 200, y: 200 }
         ];
 
@@ -33,6 +35,7 @@ export class testPlaneet extends Scene {
         this.add(this.character);
         this.add(this.characterVisual);
         this.add(this.Npc);
+        this.add(this.portal);
 
         // let inventory = new Actor
         // inventory.sprite = Resources.inventory.toSprite()
@@ -41,11 +44,13 @@ export class testPlaneet extends Scene {
 
         // //HotBarItems
 
-        
+
+
         this.hotBar = new HotBar(this.character); // Create HotBar instance
         this.add(this.hotBar);
 
-        
+
+
 
         this.items.forEach((itemData) => {
 
@@ -59,7 +64,7 @@ export class testPlaneet extends Scene {
             imageSource.load().then(() => {
                 const sprite = new Sprite({
                     image: imageSource,
-                    destSize: { width: 32, height: 32 } // Optional: Adjust size if needed
+                    destSize: { width: 64, height: 64 } // Optional: Adjust size if needed
                 });
                 itemActor.graphics.use(sprite);
             }).catch((error) => {
