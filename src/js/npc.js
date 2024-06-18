@@ -6,7 +6,8 @@ import { Resources, ResourceLoader } from './resources.js';
 export class NPC extends Actor {
     interacting = false
     dialogOptionInt = 0
-    questReceived
+    questReceived = false
+    gotSword = false
     constructor() {
         super();
     }
@@ -21,43 +22,64 @@ export class NPC extends Actor {
 
         this.text = new Label({
             text: "",
-            pos: new Vector(window.innerWidth / 2, window.innerHeight - 100),
+            pos: new Vector(0, 50),
             font: new Font({
-                size: 24,
+                size: 16,
                 color: Color.White
             })
         });
-        this.text.z = 100
+        this.text.z = 3
         this.text.anchor = new Vector(0.5, 0.5)
-        this.scene.add(this.text)
+        this.addChild(this.text)
 
         interactRange.on('collisionstart', (event) => this.interacting = true)
         interactRange.on('collisionend', (event) => this.interacting = false)
         this.scene.engine.input.keyboard.on('press', (evt) => {
-            if (evt.key === Keys.E) {
+            if (evt.key === Keys.E && this.interacting === true) {
                 this.interact()
             }
         })
     }
 
     interact() {
-        if (this.interacting === true) {
+        for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
+            if (this.scene.engine.player.inventory.items[i].name === 'Sword') {
+                this.gotSword = true
+            }
+        }
 
+        if (this.questReceived === false) {
             this.dialogOptionInt++
             switch (this.dialogOptionInt) {
                 case 1:
-                    this.text.text = 'After the universal glitch a giant crab started running\nrampant across our lands.'
+                    this.text.text = 'After the universal glitch a\ngiant crab started running\nrampant across our lands.'
                     break;
                 case 2:
-                    this.text.text = 'If you can find a trident and bring it to me\nyou might be able to beat him.'
+                    this.text.text = 'If you can find a sword and bring it to me\nyou might be able to beat him.'
                     break;
                 case 3:
                     this.text.text = ''
+                    this.dialogOptionInt = 0
+                    this.questReceived = true
                     break;
             }
+        }
 
+        if (this.gotSword === true && this.questReceived === true) {
+            this.dialogOptionInt++
+            console.log(this.gotSword)
+            console.log(this.questReceived)
+            console.log(this.dialogOptionInt)
 
-
+            switch (this.dialogOptionInt) {
+                case 1:
+                    this.text.text = 'Great now go beat the boss'
+                    break;
+                case 2:
+                    this.text.text = ''
+                    this.dialogOptionInt = 0
+                    break;
+            }
         }
     }
 }

@@ -43,7 +43,7 @@ export class Game extends Engine {
         this.add('outroScreen', { scene: new outroScreen(), transitions })
         //this.goToScene('introScreen')
         setTimeout(() => {
-            this.goToScene('introScreen',)
+            this.goToScene('testPlaneet',)
         }, 500)
     }
 }

@@ -8,7 +8,7 @@ export class Portal extends Actor {
     dialogOptionInt = 0
     questReceived
     constructor() {
-        super({ width: Resources.Portal.width, height: Resources.Portal.width });
+        super({ width: Resources.Portal.width / 1.5, height: Resources.Portal.width });
     }
 
     onInitialize() {
