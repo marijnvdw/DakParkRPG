@@ -18,6 +18,7 @@ export class Game extends Engine {
     constructor() {
         super({
             width: window.innerWidth, height: window.innerHeight,
+
         })
         this.start(ResourceLoader).then(() => this.startGame())
         this.debugMode = true

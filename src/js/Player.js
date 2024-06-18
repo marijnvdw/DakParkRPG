@@ -10,8 +10,8 @@ export class Player extends Actor {
     constructor(hotbar) {
         super({ width: Resources.Player.width, height: Resources.Player.height });
         this.inventory = new Inventory();
-        //CollisionType = true
-    }// colision type true
+
+    }
 
     onInitialize(engine) {
         //  this.on("collisionstart", (event) => this.interact(event))
