@@ -15,7 +15,6 @@ export class Player extends Actor {
 
     onInitialize(engine) {
         //  this.on("collisionstart", (event) => this.interact(event))
-        console.log('innit')
         engine.input.keyboard.on('press', (evt) => {
             if (evt.key === Keys.I) {
                 console.log(this.scene.hotBar)

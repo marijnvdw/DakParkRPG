@@ -4,18 +4,24 @@ import { Resources, ResourceLoader } from './resources.js';
 import { Player } from './Player.js';
 import { playerVisual } from './playerVisual.js';
 import { Boss1 } from './Sem/boss1.js';
+import { HotBar } from './UI.js';
 
 
 export class planet1 extends Scene {
+    game
     constructor() {
         super();
 
     }
 
-    onInitialize() {
+    onInitialize(engine) {
+        this.game = engine
         let Visual = new playerVisual()
         this.add(Visual)
         let boss = new Boss1()
         this.add(boss)
+        this.hotBar = this.game.hotBar
+        this.add(this.hotBar);
+
     }
 }

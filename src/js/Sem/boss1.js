@@ -31,7 +31,7 @@ export class Boss1 extends Actor {
                     this.scene.add(this.attackPattern)
                     this.attackCD = 0
                 } else {
-                    this.graphics.use()
+                    //this.graphics.use()
                     this.actions.moveTo(event.other.pos, 7500)
                     // setTimeout(() => {
                     this.graphics.use(this.sprite)

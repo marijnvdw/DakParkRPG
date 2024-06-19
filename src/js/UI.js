@@ -15,11 +15,9 @@ export class HotBar extends ScreenElement {
         this.scale = new Vector(1.2, 1.2);
         this.anchor = new Vector(0.5, 0.5);
         this.pos = new Vector(window.innerWidth / 2, window.innerHeight - 30);
-        console.log('haha')
     }
 
     OnKeyPress() {
-        console.log('hoi')
         if (!this.activeInv) {
             this.activeInv = true
             console.log(this.scene)
