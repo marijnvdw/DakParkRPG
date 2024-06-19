@@ -1,6 +1,7 @@
 import '../css/style.css';
 import { Actor, Vector, Keys, KeyEvent, Text, Engine, Label, Font, FontUnit, Color, Scene } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
+import { playerVisual } from './playerVisual.js';
 
 
 export class NPC extends Actor {
@@ -32,8 +33,8 @@ export class NPC extends Actor {
         this.text.anchor = new Vector(0.5, 0.5)
         this.addChild(this.text)
 
-        interactRange.on('collisionstart', (event) => this.interacting = true)
-        interactRange.on('collisionend', (event) => this.interacting = false)
+        interactRange.on('collisionstart', (event) => { if (event.other instanceof playerVisual) { this.interacting = true } })
+        interactRange.on('collisionend', (event) => { if (event.other instanceof playerVisual) { this.interacting = false } })
         this.scene.engine.input.keyboard.on('press', (evt) => {
             if (evt.key === Keys.E && this.interacting === true) {
                 this.interact()

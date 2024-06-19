@@ -12,7 +12,7 @@ export class planet1 extends Scene {
 
     }
 
-    onInitialize() {
+    onActivate() {
         let Visual = new playerVisual()
         this.add(Visual)
         let boss = new Boss1()

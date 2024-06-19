@@ -24,32 +24,21 @@ export class testPlaneet extends Scene {
             { item: new Sword(), x: 200, y: 200 }
         ];
 
-        console.log(this)
         this.camera.strategy.lockToActor(this.characterVisual)
-        this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 2000, 1200))
-        this.camera.zoom = 1.1
+        this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 2000, 2048))
+        this.camera.zoom = 2
     }
 
-    onActivate() {
+    onInitialize() {
+
         this.add(this.characterVisual);
+        this.characterVisual.pos = new Vector(350, 200)
         this.add(this.Npc);
         this.add(this.portal);
-
-        // let inventory = new Actor
-        // inventory.sprite = Resources.inventory.toSprite()
-        // inventory.pos = new Vector(700, 900)
-        // this.add(inventory)
-
-        // //HotBarItems
-
-
 
         this.hotBar = new HotBar(this.engine.player); // Create HotBar instance
         this.add(this.hotBar);
         console.log(this.hotBar)
-
-
-
 
         this.items.forEach((itemData) => {
 
@@ -79,12 +68,5 @@ export class testPlaneet extends Scene {
 
             this.add(itemActor);
         });
-
-        // let inventoryItems = new Actor
-        // inventoryItems.sprite = Resources.Cloud.toSprite()
-        // inventoryItems.pos = new Vector(800, 900)
-        // this.add(inventoryItems)
     }
-
-
 }

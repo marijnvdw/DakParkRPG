@@ -7,6 +7,7 @@ import { testPlaneet } from './Marijn/testPlaneet.js';
 import { planet1 } from './planet1.js';
 import { planet2 } from './planet2.js';
 import { planet3 } from './planet3.js';
+import { Planet1Cutscene } from './Sem/cutscene1.js';
 import { homeBase } from './homeBase.js';
 import { Player } from './Player.js';
 import { HotBar } from './UI.js';
@@ -43,9 +44,10 @@ export class Game extends Engine {
         this.add('planet3', { scene: new planet3(), transitions })
         this.add('testPlaneet', { scene: new testPlaneet(), transitions })
         this.add('outroScreen', { scene: new outroScreen(), transitions })
+        this.add('planet1Cutscene', { scene: new Planet1Cutscene(), transitions })
         //this.goToScene('introScreen')
         setTimeout(() => {
-            this.goToScene('testPlaneet',)
+            this.goToScene('introScreen',)
         }, 500)
     }
 }
