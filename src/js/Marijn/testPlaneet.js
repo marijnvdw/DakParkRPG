@@ -9,7 +9,7 @@ import { NPC } from '../npc.js'
 import { Portal } from './portal.js'
 
 export class testPlaneet extends Scene {
-
+    game
     constructor() {
         super();
         // this.character = player
@@ -29,14 +29,23 @@ export class testPlaneet extends Scene {
         this.camera.zoom = 2
     }
 
-    onInitialize() {
-
+    onInitialize(engine) {
+        this.game = engine
         this.add(this.characterVisual);
         this.characterVisual.pos = new Vector(350, 200)
         this.add(this.Npc);
         this.add(this.portal);
 
-        this.hotBar = new HotBar(this.engine.player); // Create HotBar instance
+        // let inventory = new Actor
+        // inventory.sprite = Resources.inventory.toSprite()
+        // inventory.pos = new Vector(700, 900)
+        // this.add(inventory)
+
+        // //HotBarItems
+
+
+
+        this.hotBar = this.game.hotBar
         this.add(this.hotBar);
         console.log(this.hotBar)
 
