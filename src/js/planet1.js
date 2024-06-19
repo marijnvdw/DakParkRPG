@@ -11,7 +11,6 @@ export class planet1 extends Scene {
     game
     constructor() {
         super();
-
     }
 
     onInitialize(engine) {

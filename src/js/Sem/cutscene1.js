@@ -49,6 +49,8 @@ export class Planet1Cutscene extends Scene {
         });
         const rotate = new ActionSequence(this.playerCutscene, ctx => {
             ctx.rotateBy(Math.PI / 2, 8, RotationType.Clockwise);
+            ctx.delay(5000)
+            // ctx.game.currentScene.engine.goToScene('testPlaneet')
         });
         const parallel = new ParallelActions([movement, rotate, kill])
 
