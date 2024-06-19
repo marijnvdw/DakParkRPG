@@ -3,12 +3,14 @@ import { Resources } from './resources.js';
 import { Player } from "./Player.js";
 import { Inventory } from './Inventory.js';
 let activeInv = false;
+
 export class HotBar extends ScreenElement {
+
 
     constructor() {
         super();
-        // this.player = player; // Reference to the player
         this.z = 10
+        this.equipeditem;
     }
     onInitialize(engine) {
         this.graphics.use(Resources.inventory.toSprite());
@@ -17,23 +19,23 @@ export class HotBar extends ScreenElement {
         this.pos = new Vector(window.innerWidth / 2, window.innerHeight - 30);
     }
 
-    OnKeyPress() {
-        if (!this.activeInv) {
-            this.activeInv = true
-            console.log(this.scene)
-            console.log()
-            console.log(this.scene.engine.player.inventory.items)
-            for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
-                console.log(this.scene.engine.player.inventory.items[i].image)
-                const hotBarItem = new HotBarItems();
-                console.log(hotBarItem)
-                this.scene.engine.add(hotBarItem);
-                hotBarItem.updateHotBarItems(this.scene.engine.player.inventory.items[i].image, this.scene.engine.player.inventory.items[i].scaleTexture, i);
+    OnKeyPress(activekey) {
+        console.log('hoi')
+        console.log(this.scene.engine.player.inventory.items)
+        for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
+            const hotBarItem = new HotBarItems();
+            console.log(hotBarItem)
+            this.scene.engine.add(hotBarItem);
+            hotBarItem.updateHotBarItems(this.scene.engine.player.inventory.items[i].image, this.scene.engine.player.inventory.items[i].scaleTexture, i);
+
+            // console.log(this.equipeditem)
+            if (this.equipeditem == undefined) {
+                this.equipeditem = [this.scene.engine.player.inventory.items[i]]
+            } else if (i == activekey && activekey != 10) {
+                this.equipeditem = [this.scene.engine.player.inventory.items[activekey]]
             }
-        } else {
-            //this.hotBarItem.kill()
-            //this.activeInv = false;
         }
+        console.log(this.equipeditem)
     }
 }
 
@@ -49,18 +51,14 @@ export class HotBarItems extends ScreenElement {
     }
 
     updateHotBarItems(path, scaleTexture, invPos) {
-        console.log(path)
-        console.log(scaleTexture)
         this.graphics.use(path.toSprite());
-        console.log(this.graphics)
+
         this.scale = scaleTexture;
         this.z = 11
         this.anchor = new Vector(0.5, 0.5);
         this.pos = new Vector((window.innerWidth / 2) - 190 + (47 * invPos), window.innerHeight - 30);
     }
 }
-//* this.scene.items.length
-// 437 
 
 export class HpBar extends ScreenElement {
     onInitialize(engine) {
