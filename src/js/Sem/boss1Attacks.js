@@ -29,15 +29,15 @@ export class Attack1 extends Actor {
         this.actions.scaleTo(new Vector(1.3, 1.3), new Vector(1.5, 1.5)).die()
     }
 
-    // doDmg(event) {
-    //     if (event.other instanceof playerVisual) {
-    //         console.log(event.other)
-    //         console.log(this.scene.engine.player)
-    //         this.scene.engine.player.hp -= this.dmg
-    //         if (this.scene.engine.player.hp <= 0) {
-    //             event.other.kill()
-    //             this.scene.engine.goToScene("outroScreen")
-    //         }
-    //     }
-    // }
+    doDmg(event) {
+        if (event.other instanceof playerVisual) {
+            console.log(event.other)
+            console.log(this.scene.engine.player)
+            this.scene.engine.player.hp -= this.dmg
+            if (this.scene.engine.player.hp <= 0) {
+                event.other.kill()
+                this.scene.engine.goToScene("outroScreen")
+            }
+        }
+    }
 }

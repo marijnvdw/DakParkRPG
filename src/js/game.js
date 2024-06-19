@@ -15,7 +15,7 @@ import { HotBar } from './UI.js';
 export class Game extends Engine {
 
     player
-
+    hotBar
     constructor() {
         super({
             width: window.innerWidth, height: window.innerHeight,
@@ -42,7 +42,7 @@ export class Game extends Engine {
         this.add('planet1', { scene: new planet1(), transitions })
         this.add('planet2', { scene: new planet2(), transitions })
         this.add('planet3', { scene: new planet3(), transitions })
-        this.add('testPlaneet', { scene: new testPlaneet(), transitions })
+        this.add('testPlaneet', { scene: new testPlaneet(this.hotBar), transitions })
         this.add('outroScreen', { scene: new outroScreen(), transitions })
         this.add('planet1Cutscene', { scene: new Planet1Cutscene(), transitions })
         //this.goToScene('introScreen')
