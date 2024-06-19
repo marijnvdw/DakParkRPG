@@ -24,8 +24,7 @@ export class playerVisual extends Actor {
     onInitialize(engine) {
         this.sprite = Resources.Player.toSprite();
         this.graphics.use(this.sprite);
-        this.scale = new Vector(0.5, 0.5);
-        this.pos = new Vector(300, 300);
+        this.scale = new Vector(0.25, 0.25);
         this.game = engine
         //  this.on("collisionstart", (event) => this.interact(event))
 
