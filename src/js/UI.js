@@ -52,7 +52,6 @@ export class HotBarItems extends ScreenElement {
 
     updateHotBarItems(path, scaleTexture, invPos) {
         this.graphics.use(path.toSprite());
-
         this.scale = scaleTexture;
         this.z = 11
         this.anchor = new Vector(0.5, 0.5);

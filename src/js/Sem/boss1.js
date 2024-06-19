@@ -1,4 +1,4 @@
-import { Actor, Vector, Clock, Keys, Color } from "excalibur"
+import { Actor, Vector, Clock, Keys, Color, CollisionType } from "excalibur"
 import { Resources, ResourceLoader } from '../resources.js'
 import { Player } from "../Player.js"
 import { Attack1 } from './boss1Attacks.js'
@@ -10,7 +10,7 @@ export class Boss1 extends Actor {
     hp = 100
     maxHp = 100
     constructor() {
-        super({ width: Resources.Boss1.width, height: Resources.Boss1.height })
+        super({ width: Resources.Krab.width / 1.2, height: Resources.Krab.height / 1.5, collisionType: CollisionType.Fixed })
     }
 
     onInitialize() {

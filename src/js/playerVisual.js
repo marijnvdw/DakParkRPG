@@ -15,7 +15,7 @@ export class playerVisual extends Actor {
     game
 
     constructor(player) {
-        super({ width: Resources.Player.width / 1.5, height: Resources.Player.height / 1.5, collisionType: CollisionType.Active });
+        super({ width: Resources.Player.width / 3.7, height: Resources.Player.height / 1, collisionType: CollisionType.Active });
         this.inventory = new Inventory();
         this.player = Player
         this.z = 100
