@@ -7,7 +7,6 @@ import { testPlaneet } from './Marijn/testPlaneet.js';
 import { planet1 } from './planet1.js';
 import { planet2 } from './planet2.js';
 import { planet3 } from './planet3.js';
-import { homeBase } from './homeBase.js';
 import { Player } from './Player.js';
 import { HotBar } from './UI.js';
 
