@@ -12,6 +12,7 @@ export class HotBar extends ScreenElement {
         this.z = 10
         this.equipeditem;
     }
+
     onInitialize(engine) {
         this.graphics.use(Resources.inventory.toSprite());
         this.scale = new Vector(1.2, 1.2);
@@ -21,6 +22,13 @@ export class HotBar extends ScreenElement {
     }
 
     OnKeyPress(activekey) {
+
+        let border = Resources.invBorder.toSprite();
+        border.pos = new Vector(5, 5);
+        border.z = 1000
+        this.scene.hotBar
+        console.log(this.scene.hotbar)
+
         console.log('hoi')
         console.log(this.scene.engine.player.inventory.items)
         for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
@@ -29,12 +37,12 @@ export class HotBar extends ScreenElement {
             this.scene.engine.add(hotBarItem);
             hotBarItem.updateHotBarItems(this.scene.engine.player.inventory.items[i].image, this.scene.engine.player.inventory.items[i].scaleTexture, i);
 
-            // console.log(this.equipeditem)
-             if (this.equipeditem == undefined) {
-                 this.equipeditem = [this.scene.engine.player.inventory.items[i]]
-             } else if (i == activekey && activekey != 10) {
+            console.log(this.equipeditem)
+            if (this.equipeditem == undefined) {
+                this.equipeditem = [this.scene.engine.player.inventory.items[i]]
+            } else if (i == activekey && activekey != 10) {
                 this.equipeditem = [this.scene.engine.player.inventory.items[activekey]]
-             }
+            }
         }
         console.log(this.equipeditem)
     }
