@@ -22,5 +22,8 @@ export class planet1 extends Scene {
         this.hotBar = this.game.hotBar
         this.add(this.hotBar);
         this.game.currentScene.hotBar.OnKeyPress(10); // Update HotBar
+        this.border = this.game.border
+        this.add(this.border);
+
     }
 }

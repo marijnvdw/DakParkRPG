@@ -78,17 +78,23 @@ export class HpBar extends ScreenElement {
 }
 
 export class Border extends ScreenElement {
+    game
     constructor() {
+        
         super();
         this.graphics.use(Resources.invBorder.toSprite());
-        this.pos = new Vector((window.innerWidth / 2) - 190 + (47 * 5), window.innerHeight - 30);
+        this.pos = new Vector((window.innerWidth / 2) - 190 + (47 * 0), window.innerHeight - 30);
         this.anchor = new Vector(0.5, 0.5);
         this.scale = new Vector(1.1, 1.1);
         this.z = 1000
     }
 
+onInitialize(engine){
+    this.game = engine
+}
+
     updateBorder() {
-        this.pos = new Vector((window.innerWidth / 2) - 190 + (47 * this.scene.engine.hotBar.equipeditem), window.innerHeight - 30);
+        this.pos = new Vector((window.innerWidth / 2) - 190 + (47 * this.game.hotBar.equipeditem), window.innerHeight - 30);
         console.log('location change')
         console.log(this.pos)
     }
