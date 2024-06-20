@@ -6,7 +6,7 @@ import { Player } from "../Player.js"
 import { playerVisual } from "../playerVisual.js"
 
 export class Attack extends Actor {
-    dmg
+    game
     constructor(x, y,) {
         super({ width: Resources.Boss1.width, height: Resources.Boss1.height })
         this.pos = new Vector(x, y)
@@ -15,11 +15,11 @@ export class Attack extends Actor {
         this.lifeSpan = 0
     }
 
-    onInitialize() {
+    onInitialize(engine) {
+        this.game = engine
         this.sprite = Resources.Boss1.toSprite()
         this.graphics.use(this.sprite)
         this.scale = new Vector(0.4, 0.4)
-        this.dmg = 10
         // const player = this.scene.Player
         console.log('yalla')
 
@@ -36,7 +36,8 @@ export class Attack extends Actor {
 
     doDmg(event) {
         if (event.other instanceof Boss1) {
-            this.scene.actors[1].hp -= this.dmg
+            console.log(this.scene.engine.player.Dmg)
+            this.scene.actors[1].hp -= this.scene.engine.player.Dmg
             console.log(this.scene.actors[1].hp)
             console.log(this.scene)
             if (this.scene.actors[1].hp <= 0) {

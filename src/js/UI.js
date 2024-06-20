@@ -30,9 +30,9 @@ export class HotBar extends ScreenElement {
 
             // console.log(this.equipeditem)
             if (this.equipeditem == undefined) {
-                this.equipeditem = [this.scene.engine.player.inventory.items[i]]
+                this.equipeditem = i
             } else if (i == activekey && activekey != 10) {
-                this.equipeditem = [this.scene.engine.player.inventory.items[activekey]]
+                this.equipeditem = activekey
             }
         }
         console.log(this.equipeditem)
