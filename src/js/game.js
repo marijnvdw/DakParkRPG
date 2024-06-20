@@ -35,8 +35,8 @@ export class Game extends Engine {
         this.add(this.player)
         this.hotBar = new HotBar(this.player); // Create HotBar instance
         this.add(this.hotBar);
-        this.healthpot = new HealthPotion()
-        this.add(this.healthpot)
+        this.HealthPotion = new HealthPotion()
+        this.add(this.HealthPotion)
         this.Sword = new Sword()
         this.add(this.Sword)
         this.border = new Border()

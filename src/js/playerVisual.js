@@ -43,16 +43,21 @@ export class playerVisual extends Actor {
             //movement
             if (kb.isHeld(Keys.W)) {
                 this.pos.y -= 4;
+                this.graphics.use(Resources.Back.toSprite());
             }
             if (kb.isHeld(Keys.A)) {
                 this.pos.x -= 4;
+                this.graphics.use(Resources.Side.toSprite());
+                this.graphics.flipHorizontal = false;
             }
             if (kb.isHeld(Keys.S)) {
                 this.pos.y += 4;
+                this.graphics.use(Resources.Player.toSprite());
             }
             if (kb.isHeld(Keys.D)) {
                 this.pos.x += 4;
-
+                this.graphics.use(Resources.Side.toSprite());
+                this.graphics.flipHorizontal = true;
             }
             //dash mechanic
             if (kb.wasPressed(Keys.Space) && this.dash === true) {

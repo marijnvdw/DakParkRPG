@@ -23,7 +23,7 @@ export class Item extends Actor {
 
 export class HealthPotion extends Item {
     constructor() {
-        super("Health Potion", "Restores health", Resources.apple, 'apple', new Vector(0.05, 0.05));//, Resources.apple
+        super("HealthPotion", "Restores health", Resources.apple, 'apple', new Vector(0.05, 0.05));//, Resources.apple
     }
 
 
@@ -31,8 +31,7 @@ export class HealthPotion extends Item {
 
     use(equiped) {
         this.game.currentScene.player.health += 10;
-        console.log(`${this.game.currentScene.player.name} restored 50 health`);
-        const used = this.game.currentScene.player.inventory.items[equiped]
+        console.log(`${this.game.currentScene.player.name} restored 10 health`);
     }
 
 }
