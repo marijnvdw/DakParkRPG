@@ -27,7 +27,9 @@ export class Inventory extends Actor {
     useItem(item) {
         //   console.log(`Using`, this.game[this.items[item]]);
         //  console.log(this.game[this.items].use)
-        console.log(this.items[item])
+        let toUse = (this.items[item].name)
+        //this.game[toUse].use
+        console.log(toUse)
 
     }
 
