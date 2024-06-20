@@ -20,7 +20,6 @@ export class Player extends Actor {
                 this.logInventory();
                 this.scene.engine.hotBar.OnKeyPress(10); // Update HotBar
             }
-            console.log(evt.key)
             if (evt.key == Keys.Digit2) {
                 this.logInventory();
                 this.scene.engine.hotBar.OnKeyPress(1);

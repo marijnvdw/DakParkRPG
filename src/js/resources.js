@@ -11,6 +11,7 @@ const Resources = {
     Cloud: new ImageSource('images/Sem/cloud.png'),
     Galaxy: new ImageSource('images/Sem/galaxy.jpg'),
     Portal: new ImageSource('images/Sem/portal.png'),
+    House: new ImageSource('images/Sem/strandhuis.png'),
 
     //Sil
     Krab: new ImageSource('images/Sil/krab.png'),

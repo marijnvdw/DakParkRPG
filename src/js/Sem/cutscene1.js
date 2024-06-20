@@ -14,7 +14,7 @@ export class Planet1Cutscene extends Scene {
     onInitialize(engine) {
         this.game = engine
         this.game.currentScene.engine.clock.schedule(() => this.killScene(), 650)
-        this.game.currentScene.engine.clock.schedule(() => this.engine.goToScene('testPlaneet', { sceneActivationData: { Pos: this.pos } }), 3000)
+        this.game.currentScene.engine.clock.schedule(() => this.engine.goToScene('testPlaneet'), 3000)
 
         this.playerCutscene = new Actor({
             pos: new Vector(0, 0),
@@ -37,6 +37,14 @@ export class Planet1Cutscene extends Scene {
         this.camera.strategy.lockToActor(this.playerCutscene)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 2000, 2048))
         this.camera.zoom = 2.5
+
+        this.house = new Actor({
+            pos: new Vector(230, 300),
+            scale: new Vector(0.7, 0.7),
+        })
+        this.house.graphics.use(Resources.House.toSprite())
+        this.house.graphics.flipHorizontal = true
+        this.add(this.house)
 
     }
 
