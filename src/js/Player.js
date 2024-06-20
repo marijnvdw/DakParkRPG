@@ -30,6 +30,7 @@ export class Player extends Actor {
                     break
                 }
 
+
             }
 
             console.log(evt.key)

@@ -6,37 +6,38 @@ import { HealthPotion, Sword } from "../Item.js";
 import { HotBar } from '../UI.js'
 import { playerVisual } from '../playerVisual.js';
 import { NPC } from '../npc.js'
-import { Portal } from './portal.js'
+import { Portal, BeachHouse } from './locations.js'
 
 export class testPlaneet extends Scene {
     game
     position
-    constructor(ctx) {
+    constructor() {
         super();
         // this.character = player
         this.characterVisual = new playerVisual()
         this.Npc = new NPC
         this.portal = new Portal
+        this.beachHouse = new BeachHouse
 
         Resources.planet1back.addToScene(this);
 
         this.items = [
             { item: new HealthPotion(), x: 300, y: 800 },
-            { item: new Sword(), x: 200, y: 200 }
+            { item: new Sword(), x: 500, y: 200 }
         ];
 
         this.camera.strategy.lockToActor(this.characterVisual)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 2000, 2048))
         this.camera.zoom = 2
-        this.position = ctx.pos
     }
 
     onInitialize(engine) {
         this.game = engine
         this.add(this.characterVisual);
-        this.characterVisual.pos = this.position
+        this.characterVisual.pos = new Vector(650, 200)
         this.add(this.Npc);
         this.add(this.portal);
+        this.add(this.beachHouse)
 
         // let inventory = new Actor
         // inventory.sprite = Resources.inventory.toSprite()
