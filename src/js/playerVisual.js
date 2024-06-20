@@ -42,16 +42,16 @@ export class playerVisual extends Actor {
 
         //movement
         if (kb.isHeld(Keys.W)) {
-            this.pos.y -= 7.7;
+            this.pos.y -= 4;
         }
         if (kb.isHeld(Keys.A)) {
-            this.pos.x -= 7.7;
+            this.pos.x -= 4;
         }
         if (kb.isHeld(Keys.S)) {
-            this.pos.y += 7.7;
+            this.pos.y += 4;
         }
         if (kb.isHeld(Keys.D)) {
-            this.pos.x += 7.7;
+            this.pos.x += 4;
 
         }
 

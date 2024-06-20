@@ -24,6 +24,8 @@ export class HealthPotion extends Item {
     }
 
 
+
+
     use(character) {
         character.health += 50;
         console.log(`${character.name} restored 50 health`);
