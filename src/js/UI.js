@@ -18,16 +18,11 @@ export class HotBar extends ScreenElement {
         this.scale = new Vector(1.2, 1.2);
         this.anchor = new Vector(0.5, 0.5);
         this.pos = new Vector(window.innerWidth / 2, window.innerHeight - 30);
+
+
     }
 
     OnKeyPress(activekey) {
-
-        let border = Resources.invBorder.toSprite();
-        border.pos = new Vector(5, 5);
-        border.z = 1000
-        this.scene.hotBar
-        console.log(this.scene.hotbar)
-
         console.log('hoi')
         console.log(this.scene.engine.player.inventory.items)
         for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
@@ -59,16 +54,36 @@ export class HotBarItems extends ScreenElement {
     }
 
     updateHotBarItems(path, scaleTexture, invPos) {
+
+        console.log(this.scene)
+        // for (let index = 0; index < this.scene.items.length; index++) {
+        //     this.kill(this.scene.items[index]);
+        // }
+
+
+
         this.graphics.use(path.toSprite());
         this.scale = scaleTexture;
         this.z = 11
         this.anchor = new Vector(0.5, 0.5);
         this.pos = new Vector((window.innerWidth / 2) - 190 + (47 * invPos), window.innerHeight - 30);
+        this.name = 'hotbarItem'
     }
 }
 
 export class HpBar extends ScreenElement {
     onInitialize(engine) {
         // Initialization for HpBar
+    }
+}
+
+export class Border extends ScreenElement {
+    constructor() {
+        let border = Resources.invBorder.toSprite();
+        border.pos = new Vector(window.innerWidth / 2, window.innerHeight - 30);
+        border.anchor = new Vector(0.5, 0.5);
+        border.z = 1000
+        this.scene.add(border)
+        console.log(this.scene.hotbar)
     }
 }

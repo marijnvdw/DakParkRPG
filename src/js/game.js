@@ -46,7 +46,7 @@ export class Game extends Engine {
         this.add('planet1Cutscene', { scene: new Planet1Cutscene(), transitions })
         //this.goToScene('introScreen')
         setTimeout(() => {
-            this.goToScene('introScreen',)
+            this.goToScene('testPlaneet',)
         }, 500)
     }
 }
