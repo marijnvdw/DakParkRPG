@@ -13,6 +13,7 @@ const Resources = {
     Portal: new ImageSource('images/Sem/portal.png'),
     House: new ImageSource('images/Sem/strandhuis.png'),
     TextBox: new ImageSource('images/Sem/textBox.png'),
+    Forest: new TiledResource('images/Sem/Tilemap/forestworld.tmx'),
 
     //Sil
     Krab: new ImageSource('images/Sil/krab.png'),
