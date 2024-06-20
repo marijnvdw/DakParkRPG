@@ -2,6 +2,7 @@ import '../../css/style.css';
 import { Actor, Vector, Keys, KeyEvent, Text, CollisionType, Scene } from "excalibur";
 import { Resources, ResourceLoader } from '../resources.js';
 import { Player } from '../Player.js';
+import { playerVisual } from '../playerVisual.js';
 
 
 export class Portal extends Actor {
@@ -23,7 +24,7 @@ export class Portal extends Actor {
     }
 
     enterPortal(event) {
-        if (event instanceof Player) {
+        if (event.other instanceof playerVisual) {
             this.scene.actors.forEach(actor => {
                 actor.kill()
             })
@@ -54,7 +55,7 @@ export class PortalArea extends Actor {
     }
 
     enterPortal(event) {
-        if (event instanceof Player) {
+        if (event.other instanceof playerVisual) {
             this.scene.actors.forEach(actor => {
                 actor.kill()
             })
@@ -85,11 +86,10 @@ export class BeachHouse extends Actor {
     }
 
     enterHouse(event) {
-        if (event instanceof Player) {
+        if (event.other instanceof playerVisual) {
             this.scene.actors.forEach(actor => {
                 this.game.currentScene.engine.clock.schedule(() => actor.kill(), 320)
             })
-            // this.scene.engine.goToScene('planet1')
             this.game.goToScene('planet1');
         }
     }

@@ -1,5 +1,5 @@
 import '../css/style.css';
-import { Actor, Vector, Keys, KeyEvent, Text, Engine, Label, Font, FontUnit, Color, Scene } from "excalibur";
+import { Actor, Vector, Keys, KeyEvent, Text, Engine, Label, Font, FontUnit, Color, Scene, CollisionType } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
 import { playerVisual } from './playerVisual.js';
 
@@ -9,14 +9,16 @@ export class NPC extends Actor {
     dialogOptionInt = 0
     questReceived = false
     gotSword = false
+    game
     constructor() {
-        super();
+        super({ width: Resources.NPC.width, height: Resources.NPC.height, collisionType: CollisionType.Fixed });
     }
 
-    onInitialize() {
+    onInitialize(engine) {
         this.sprite = Resources.NPC.toSprite()
         this.graphics.use(this.sprite)
         this.pos = new Vector(370, 300)
+        this.game = engine
 
         let interactRange = new Actor({ radius: 100 })
         this.addChild(interactRange)
@@ -62,6 +64,7 @@ export class NPC extends Actor {
                 case 1:
                     this.text.text = 'I haven\'t seen you before.'
                     this.text.addChild(this.textBox)
+                    this.game.player.moveAble = false
                     break;
                 case 2:
                     this.text.text = 'Did you end up here after\nthe universal glitch aswell?'
@@ -78,6 +81,7 @@ export class NPC extends Actor {
                 case 6:
                     this.text.text = ''
                     this.dialogOptionInt = 0
+                    this.game.player.moveAble = true
                     this.questReceived = true
                     this.textBox.kill()
                     break;
@@ -101,7 +105,7 @@ export class NPC extends Actor {
                     this.text.text = 'It all started a few days ago when\na powerfull force caused a glitch\nof sorts in this universe.'
                     break;
                 case 5:
-                    this.text.text = 'Thank to this \'glitch\' all kinds of different\nworld ended up colliding.'
+                    this.text.text = 'Thank to this \'glitch\' all different kinds of\nworlds ended up colliding.'
                     break;
                 case 6:
                     this.text.text = 'You must\'ve ended up here after that.'

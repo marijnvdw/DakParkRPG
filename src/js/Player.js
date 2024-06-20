@@ -8,6 +8,7 @@ export class Player extends Actor {
     hp = 2000
     maxHp = 2000
     Dmg
+    moveAble = true;
 
     constructor(hotbar) {
         super({ width: Resources.Player.width, height: Resources.Player.height });
@@ -33,7 +34,7 @@ export class Player extends Actor {
 
             }
 
-            console.log(evt.key)
+            //console.log(evt.key)
             //if (evt.key == Keys.Digit2) {
             this.logInventory();
 
@@ -62,7 +63,7 @@ export class Player extends Actor {
     }
 
     logInventory() {
-        console.log("Inventory Items:");
+        //console.log("Inventory Items:");
         this.inventory.getItems().forEach(item => {
             console.log(`- ${item.name}: ${item.description}`);
         });
