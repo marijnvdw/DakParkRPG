@@ -39,37 +39,36 @@ export class playerVisual extends Actor {
             this.attackCD++
         }
         let kb = engine.input.keyboard;
-
-        //movement
-        if (kb.isHeld(Keys.W)) {
-            this.pos.y -= 4;
-        }
-        if (kb.isHeld(Keys.A)) {
-            this.pos.x -= 4;
-        }
-        if (kb.isHeld(Keys.S)) {
-            this.pos.y += 4;
-        }
-        if (kb.isHeld(Keys.D)) {
-            this.pos.x += 4;
-
-        }
-
-
-        //dash mechanic
-        if (kb.wasPressed(Keys.Space) && this.dash === true) {
-            this.dash = false;
+        if (this.game.player.moveAble === true) {
+            //movement
             if (kb.isHeld(Keys.W)) {
-                this.pos.y -= 100;
+                this.pos.y -= 4;
             }
             if (kb.isHeld(Keys.A)) {
-                this.pos.x -= 100;
+                this.pos.x -= 4;
             }
             if (kb.isHeld(Keys.S)) {
-                this.pos.y += 100;
+                this.pos.y += 4;
             }
             if (kb.isHeld(Keys.D)) {
-                this.pos.x += 100;
+                this.pos.x += 4;
+
+            }
+            //dash mechanic
+            if (kb.wasPressed(Keys.Space) && this.dash === true) {
+                this.dash = false;
+                if (kb.isHeld(Keys.W)) {
+                    this.pos.y -= 100;
+                }
+                if (kb.isHeld(Keys.A)) {
+                    this.pos.x -= 100;
+                }
+                if (kb.isHeld(Keys.S)) {
+                    this.pos.y += 100;
+                }
+                if (kb.isHeld(Keys.D)) {
+                    this.pos.x += 100;
+                }
             }
         }
 
