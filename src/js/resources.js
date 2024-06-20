@@ -19,6 +19,11 @@ const Resources = {
     leeg: new ImageSource('images/Sil/leeg.png'),
     //Maaike
     planet1back: new TiledResource('images/Maaike/Planet1-backrgound.tmx'),//C:\Users\mvdwa\DakParkRPG\public\images\Maaike\Planet1-backrgound.tmx
+    Back: new ImageSource('images/Maaike/back.png'),
+    Side: new ImageSource('images/Maaike/Side.png'),
+    Backwalk: new ImageSource('images/Maaike/back_walking.png'),
+    Sidewalk: new ImageSource('images/Maaike/side_walking.png'),
+    Frontwalk: new ImageSource('images/Maaike/walking_front.png'),
 
     //Marijn
     ClassroomMap: new TiledResource('images/Marijn/NewMap.tmx'),
