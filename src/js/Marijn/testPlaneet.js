@@ -10,7 +10,8 @@ import { Portal } from './portal.js'
 
 export class testPlaneet extends Scene {
     game
-    constructor() {
+    position
+    constructor(ctx) {
         super();
         // this.character = player
         this.characterVisual = new playerVisual()
@@ -27,12 +28,13 @@ export class testPlaneet extends Scene {
         this.camera.strategy.lockToActor(this.characterVisual)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 2000, 2048))
         this.camera.zoom = 2
+        this.position = ctx.pos
     }
 
     onInitialize(engine) {
         this.game = engine
         this.add(this.characterVisual);
-        this.characterVisual.pos = new Vector(350, 200)
+        this.characterVisual.pos = this.position
         this.add(this.Npc);
         this.add(this.portal);
 

@@ -14,6 +14,7 @@ export class Planet1Cutscene extends Scene {
     onInitialize(engine) {
         this.game = engine
         this.game.currentScene.engine.clock.schedule(() => this.killScene(), 650)
+        this.game.currentScene.engine.clock.schedule(() => this.engine.goToScene('testPlaneet', { sceneActivationData: { Pos: this.pos } }), 3000)
 
         this.playerCutscene = new Actor({
             pos: new Vector(0, 0),
@@ -49,10 +50,12 @@ export class Planet1Cutscene extends Scene {
         });
         const rotate = new ActionSequence(this.playerCutscene, ctx => {
             ctx.rotateBy(Math.PI / 2, 8, RotationType.Clockwise);
+            ctx.delay(5000)
         });
         const parallel = new ParallelActions([movement, rotate, kill])
 
         this.playerCutscene.actions.runAction(parallel)
+
     }
 }
 
