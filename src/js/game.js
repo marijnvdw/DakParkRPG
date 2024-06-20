@@ -9,13 +9,15 @@ import { planet2 } from './planet2.js';
 import { planet3 } from './planet3.js';
 import { Planet1Cutscene } from './Sem/cutscene1.js';
 import { Player } from './Player.js';
-import { HotBar } from './UI.js';
+import { HotBar, Border } from './UI.js';
 import { Item, HealthPotion, Sword } from './Item.js'
+
 
 export class Game extends Engine {
 
     player
     hotBar
+    border
     healthpot
     Sword
 
@@ -37,6 +39,8 @@ export class Game extends Engine {
         this.add(this.healthpot)
         this.Sword = new Sword()
         this.add(this.Sword)
+        this.border = new Border()
+        this.add(this.border)
 
 
 

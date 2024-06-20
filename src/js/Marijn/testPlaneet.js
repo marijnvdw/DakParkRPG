@@ -40,6 +40,11 @@ export class testPlaneet extends Scene {
         this.add(this.portal);
         this.add(this.gate)
         this.add(this.beachHouse)
+        this.hotBar = this.game.hotBar
+        this.add(this.hotBar);
+        console.log(this.hotBar)
+        this.border = this.game.border
+        this.add(this.border);
 
         // let inventory = new Actor
         // inventory.sprite = Resources.inventory.toSprite()
@@ -50,12 +55,6 @@ export class testPlaneet extends Scene {
 
 
 
-        this.hotBar = this.game.hotBar
-        this.add(this.hotBar);
-        console.log(this.hotBar)
-
-        this.border = this.game.border
-        this.add(this.border);
 
         this.items.forEach((itemData) => {
 
