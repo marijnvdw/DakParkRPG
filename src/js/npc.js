@@ -16,22 +16,29 @@ export class NPC extends Actor {
     onInitialize() {
         this.sprite = Resources.NPC.toSprite()
         this.graphics.use(this.sprite)
-        this.pos = new Vector(600, 600)
+        this.pos = new Vector(370, 300)
 
         let interactRange = new Actor({ radius: 100 })
         this.addChild(interactRange)
 
         this.text = new Label({
             text: "",
-            pos: new Vector(0, 50),
+            pos: new Vector(0, -150),
+            z: 3,
             font: new Font({
                 size: 16,
-                color: Color.White
+                color: Color.Black
             })
         });
         this.text.z = 3
         this.text.anchor = new Vector(0.5, 0.5)
         this.addChild(this.text)
+
+        this.textBox = new Actor({
+            z: 2,
+            scale: new Vector(0.5, 0.5)
+        })
+        this.textBox.graphics.use(Resources.TextBox.toSprite())
 
         interactRange.on('collisionstart', (event) => { if (event.other instanceof playerVisual) { this.interacting = true } })
         interactRange.on('collisionend', (event) => { if (event.other instanceof playerVisual) { this.interacting = false } })
@@ -53,32 +60,68 @@ export class NPC extends Actor {
             this.dialogOptionInt++
             switch (this.dialogOptionInt) {
                 case 1:
-                    this.text.text = 'After the universal glitch a\ngiant crab started running\nrampant across our lands.'
+                    this.text.text = 'I haven\'t seen you before.'
+                    this.text.addChild(this.textBox)
                     break;
                 case 2:
-                    this.text.text = 'If you can find a sword and bring it to me\nyou might be able to beat him.'
+                    this.text.text = 'Did you end up here after\nthe universal glitch aswell?'
                     break;
                 case 3:
+                    this.text.text = 'Listen up, I will help you out\nbut nothing is free around here.'
+                    break;
+                case 4:
+                    this.text.text = 'A wolf from the portal down south\nstole my belongings from me.'
+                    break;
+                case 5:
+                    this.text.text = 'Help me out and I\'ll tell\nyou everything you need to know.'
+                    break;
+                case 6:
                     this.text.text = ''
                     this.dialogOptionInt = 0
                     this.questReceived = true
+                    this.textBox.kill()
                     break;
             }
         }
 
         if (this.gotSword === true && this.questReceived === true) {
             this.dialogOptionInt++
-            console.log(this.gotSword)
-            console.log(this.questReceived)
-            console.log(this.dialogOptionInt)
-
             switch (this.dialogOptionInt) {
                 case 1:
-                    this.text.text = 'Great now go beat the boss'
+                    this.text.text = 'Oh, you got my things back.'
+                    this.text.addChild(this.textBox)
                     break;
                 case 2:
+                    this.text.text = 'You might not be so useless\nafter all.'
+                    break;
+                case 3:
+                    this.text.text = '...'
+                    break;
+                case 4:
+                    this.text.text = 'It all started a few days ago when\na powerfull force caused a glitch\nof sorts in this universe.'
+                    break;
+                case 5:
+                    this.text.text = 'Thank to this \'glitch\' all kinds of different\nworld ended up colliding.'
+                    break;
+                case 6:
+                    this.text.text = 'You must\'ve ended up here after that.'
+                    break;
+                case 7:
+                    this.text.text = '...'
+                    break;
+                case 8:
+                    this.text.text = 'I\'ll help you get back to your own world.'
+                    break;
+                case 9:
+                    this.text.text = 'You\'ll get the details later,\nfor now you need some\narmor and weapons.'
+                    break;
+                case 10:
+                    this.text.text = 'There might be some north of here.'
+                    break;
+                case 11:
                     this.text.text = ''
                     this.dialogOptionInt = 0
+                    this.textBox.kill()
                     break;
             }
         }

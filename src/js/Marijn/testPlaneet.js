@@ -6,7 +6,7 @@ import { HealthPotion, Sword } from "../Item.js";
 import { HotBar } from '../UI.js'
 import { playerVisual } from '../playerVisual.js';
 import { NPC } from '../npc.js'
-import { Portal, BeachHouse } from './locations.js'
+import { Portal, BeachHouse, PortalArea } from './spawnables.js'
 
 export class testPlaneet extends Scene {
     game
@@ -16,7 +16,8 @@ export class testPlaneet extends Scene {
         // this.character = player
         this.characterVisual = new playerVisual()
         this.Npc = new NPC
-        this.portal = new Portal
+        this.portal = new Portal(1400, 850)
+        this.gate = new PortalArea(100, 50)
         this.beachHouse = new BeachHouse
 
         Resources.planet1back.addToScene(this);
@@ -37,6 +38,7 @@ export class testPlaneet extends Scene {
         this.characterVisual.pos = new Vector(650, 200)
         this.add(this.Npc);
         this.add(this.portal);
+        // this.add(this.gate)
         this.add(this.beachHouse)
 
         // let inventory = new Actor
