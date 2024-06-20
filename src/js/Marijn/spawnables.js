@@ -26,17 +26,14 @@ export class Portal extends Actor {
     enterPortal(event) {
         if (event.other instanceof playerVisual) {
             this.scene.actors.forEach(actor => {
-                actor.kill()
+                this.game.currentScene.engine.clock.schedule(() => actor.kill(), 320)
             })
-            // this.scene.engine.goToScene('planet1')
-            setTimeout(() => {
-                this.game.goToScene('planet1');
-            }, 500)
+            this.game.goToScene('planet1');
         }
     }
 }
 
-export class PortalArea extends Actor {
+export class PortalForest extends Actor {
     game;
 
     constructor(x, y) {
@@ -47,22 +44,19 @@ export class PortalArea extends Actor {
     onInitialize(engine) {
         this.sprite = Resources.Portal.toSprite()
         this.graphics.use(this.sprite)
-        this.scale = new Vector(0.07, 0.07)
+        this.scale = new Vector(0.06, 0.03)
         this.z = 1000
         this.game = engine
 
-        //   this.on('collisionstart', (event) => this.enterPortal())
+        this.on('collisionstart', (event) => this.enterPortal(event))
     }
 
     enterPortal(event) {
         if (event.other instanceof playerVisual) {
             this.scene.actors.forEach(actor => {
-                actor.kill()
+                this.game.currentScene.engine.clock.schedule(() => actor.kill(), 320)
             })
-            // this.scene.engine.goToScene('planet1')
-            setTimeout(() => {
-                this.game.goToScene('planet1');
-            }, 500)
+            this.game.goToScene('planet1');
         }
     }
 }
@@ -110,7 +104,6 @@ export class BeachHouseInside extends Scene {
         this.scene.actors.forEach(actor => {
             this.game.currentScene.engine.clock.schedule(() => actor.kill(), 320)
         })
-        // this.scene.engine.goToScene('planet1')
         this.game.goToScene('planet1');
     }
 }
