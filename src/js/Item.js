@@ -27,6 +27,8 @@ export class HealthPotion extends Item {
     }
 
 
+
+
     use() {
         this.game.currentScene.player.health += 50;
         console.log(`${this.game.currentScene.player.name} restored 50 health`);

@@ -22,7 +22,8 @@ const Resources = {
     ClassroomMap: new TiledResource('images/Marijn/NewMap.tmx'),
     inventory: new ImageSource('images/Marijn/inv.png'),
     apple: new ImageSource('images/Marijn/apple.png'),
-    sword: new ImageSource('images/Marijn/sword.png')
+    sword: new ImageSource('images/Marijn/sword.png'),
+    invBorder: new ImageSource('images/Marijn/invborder.png')
 
 }
 
