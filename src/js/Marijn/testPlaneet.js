@@ -3,7 +3,7 @@ import { Engine, Scene, Actor, Vector, Color, Sprite, BoundingBox } from "excali
 import { Resources, ResourceLoader } from '../resources.js';
 import { Player } from '../Player.js';
 import { HealthPotion, Sword } from "../Item.js";
-import { HotBar } from '../UI.js'
+import { HotBar, Border } from '../UI.js'
 import { playerVisual } from '../playerVisual.js';
 import { NPC } from '../npc.js'
 import { Portal, BeachHouse } from './locations.js'
@@ -51,6 +51,9 @@ export class testPlaneet extends Scene {
         this.hotBar = this.game.hotBar
         this.add(this.hotBar);
         console.log(this.hotBar)
+
+        this.border = this.game.border
+        this.add(this.border);
 
         this.items.forEach((itemData) => {
 

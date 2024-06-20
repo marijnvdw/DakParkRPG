@@ -9,7 +9,7 @@ import { planet2 } from './planet2.js';
 import { planet3 } from './planet3.js';
 import { Planet1Cutscene } from './Sem/cutscene1.js';
 import { Player } from './Player.js';
-import { HotBar } from './UI.js';
+import { HotBar, Border } from './UI.js';
 
 export class Game extends Engine {
 
@@ -29,6 +29,8 @@ export class Game extends Engine {
         this.add(this.player)
         this.hotBar = new HotBar(this.player); // Create HotBar instance
         this.add(this.hotBar);
+        this.border = new Border(this.player);
+        this.add(this.border);
 
 
 
