@@ -9,13 +9,14 @@ export class Player extends Actor {
     maxHp = 2000
     Dmg
     moveAble = true;
-
+    game
     constructor(hotbar) {
         super({ width: Resources.Player.width, height: Resources.Player.height });
         this.inventory = new Inventory();
     }
 
-    onInitialize(engine,) {
+    onInitialize(engine) {
+        this.game = engine
         this.Dmg = 10
         //  this.on("collisionstart", (event) => this.interact(event))
         engine.input.keyboard.on('press', (evt) => {
@@ -39,8 +40,7 @@ export class Player extends Actor {
             this.logInventory();
 
             if (evt.key == Keys.Q) {
-                this.logInventory();
-                this.scene.engine.item.use(this.game.currentScene.HotBar.equipeditem);
+                this.inventory.useItem(this.game.hotBar.equipeditem)
             }
         });
     }
@@ -59,7 +59,6 @@ export class Player extends Actor {
     useItemFromInventory(item) {
         item.use(this);
         this.inventory.removeItem(item);
-
     }
 
     logInventory() {
