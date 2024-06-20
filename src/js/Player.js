@@ -14,7 +14,7 @@ export class Player extends Actor {
         this.inventory = new Inventory();
     }
 
-    onInitialize(engine) {
+    onInitialize(engine,) {
         this.Dmg = 10
         //  this.on("collisionstart", (event) => this.interact(event))
         engine.input.keyboard.on('press', (evt) => {
@@ -39,7 +39,7 @@ export class Player extends Actor {
 
             if (evt.key == Keys.Q) {
                 this.logInventory();
-                this.useitem;
+                this.scene.engine.item.use(this.game.currentScene.HotBar.equipeditem);
             }
         });
     }

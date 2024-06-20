@@ -7,7 +7,6 @@ export class Inventory {
 
     addItem(item) {
         this.items.push(item);
-        
     }
 
     removeItem(item) {
