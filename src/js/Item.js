@@ -29,9 +29,10 @@ export class HealthPotion extends Item {
 
 
 
-    use() {
-        this.game.currentScene.player.health += 50;
+    use(equiped) {
+        this.game.currentScene.player.health += 10;
         console.log(`${this.game.currentScene.player.name} restored 50 health`);
+        const used = this.game.currentScene.player.inventory.items[equiped]
     }
 
 }
