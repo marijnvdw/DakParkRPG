@@ -25,6 +25,15 @@ export class HotBar extends ScreenElement {
     OnKeyPress(activekey) {
         console.log('hoi')
         console.log(this.scene.engine.player.inventory.items)
+        console.log(this.scene.actors)
+        for (let index = 0; index < this.scene.actors.length; index++) {
+            if (this.scene.actors[index].name == 'hotBarItem'){
+                    console.log('driewieler')
+                    this.scene.actors[index].kill()
+            }
+                //kill(this.scene.actors[index]);
+        }
+
         for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
             const hotBarItem = new HotBarItems();
             console.log(hotBarItem)
@@ -33,9 +42,9 @@ export class HotBar extends ScreenElement {
 
             console.log(this.equipeditem)
             if (this.equipeditem == undefined) {
-                this.equipeditem = [this.scene.engine.player.inventory.items[i]]
+                this.equipeditem = i
             } else if (i == activekey && activekey != 10) {
-                this.equipeditem = [this.scene.engine.player.inventory.items[activekey]]
+                this.equipeditem = activekey
             }
         }
         console.log(this.equipeditem)
@@ -55,19 +64,23 @@ export class HotBarItems extends ScreenElement {
 
     updateHotBarItems(path, scaleTexture, invPos) {
 
-        console.log(this.scene)
-        // for (let index = 0; index < this.scene.items.length; index++) {
-        //     this.kill(this.scene.items[index]);
+        // console.log(this.scene.actors)
+        // for (let index = 0; index < this.scene.actors.length; index++) {
+        //     if (this.scene.actors[index].name == 'hotBarItem'){
+        //             console.log('driewieler')
+        //             this.scene.actors[index].kill()
+        //     }
+        //         //kill(this.scene.actors[index]);
         // }
-
-
-
+        
+        console.log(path)
         this.graphics.use(path.toSprite());
         this.scale = scaleTexture;
         this.z = 11
         this.anchor = new Vector(0.5, 0.5);
         this.pos = new Vector((window.innerWidth / 2) - 190 + (47 * invPos), window.innerHeight - 30);
-        this.name = 'hotbarItem'
+        this.name = 'hotBarItem'
+
     }
 }
 

@@ -7,6 +7,7 @@ import { HotBar } from './UI.js'
 export class Player extends Actor {
     hp = 2000
     maxHp = 2000
+    Dmg
 
     constructor(hotbar) {
         super({ width: Resources.Player.width, height: Resources.Player.height });
@@ -14,6 +15,7 @@ export class Player extends Actor {
     }
 
     onInitialize(engine) {
+        this.Dmg = 10
         //  this.on("collisionstart", (event) => this.interact(event))
         engine.input.keyboard.on('press', (evt) => {
             if (evt.key === Keys.I) {
@@ -28,14 +30,23 @@ export class Player extends Actor {
                     break
                 }
 
+
             }
 
             console.log(evt.key)
             //if (evt.key == Keys.Digit2) {
             this.logInventory();
 
-            //}
+            if (evt.key == Keys.Q) {
+                this.logInventory();
+                this.useitem;
+            }
         });
+    }
+
+    useitem() {
+        this.inventory.currentitem.use()
+        this.inventory.items[currentitem].kill()
     }
 
     addItemToInventory(item) {
