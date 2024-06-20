@@ -12,8 +12,6 @@ export class introScreen extends Scene {
 
     onInitialize() {
 
-
-
         const bg = new Actor({
             pos: new Vector(0, 0),
             scale: new Vector(0.8, 0.8),
@@ -52,6 +50,6 @@ export class introScreen extends Scene {
     }
 
     sceneSwitch() {
-        this.engine.goToScene('testPlaneet')
+        this.engine.goToScene('planet1Cutscene')
     }
 }

@@ -7,15 +7,18 @@ export class Portal extends Actor {
     interacting = false
     dialogOptionInt = 0
     questReceived
+    game;
+
     constructor() {
         super({ width: Resources.Portal.width / 1.5, height: Resources.Portal.width });
     }
 
-    onInitialize() {
+    onInitialize(engine) {
         this.sprite = Resources.Portal.toSprite()
         this.graphics.use(this.sprite)
         this.pos = new Vector(1400, 780)
         this.scale = new Vector(0.07, 0.07)
+        this.game = engine
 
         this.on('collisionstart', (event) => this.enterPortal())
     }
@@ -24,6 +27,9 @@ export class Portal extends Actor {
         this.scene.actors.forEach(actor => {
             actor.kill()
         })
-        this.scene.engine.goToScene('planet1')
+        // this.scene.engine.goToScene('planet1')
+        setTimeout(() => {
+            this.game.goToScene('planet1');
+        }, 500)
     }
 }

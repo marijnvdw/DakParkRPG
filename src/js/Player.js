@@ -7,14 +7,14 @@ import { HotBar } from './UI.js'
 export class Player extends Actor {
     hp = 2000
     maxHp = 2000
-    
+
     constructor(hotbar) {
         super({ width: Resources.Player.width, height: Resources.Player.height });
         this.inventory = new Inventory();
     }
 
     onInitialize(engine) {
-        console.log('innit')
+        //  this.on("collisionstart", (event) => this.interact(event))
         engine.input.keyboard.on('press', (evt) => {
             if (evt.key === Keys.I) {
                 this.logInventory();

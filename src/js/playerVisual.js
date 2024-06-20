@@ -12,9 +12,10 @@ export class playerVisual extends Actor {
     attackCD = 0
     LastDirectionHorizontal = 0
     LastDirectionVertical = 0
+    game
 
     constructor(player) {
-        super({ width: Resources.Player.width / 1.5, height: Resources.Player.height / 1.5, collisionType: CollisionType.Active });
+        super({ width: Resources.Player.width / 3.7, height: Resources.Player.height / 1, collisionType: CollisionType.Active });
         this.inventory = new Inventory();
         this.player = Player
         this.z = 100
@@ -23,13 +24,12 @@ export class playerVisual extends Actor {
     onInitialize(engine) {
         this.sprite = Resources.Player.toSprite();
         this.graphics.use(this.sprite);
-        this.scale = new Vector(0.5, 0.5);
-        this.pos = new Vector(300, 300);
+        this.scale = new Vector(0.25, 0.25);
+        this.game = engine
         //  this.on("collisionstart", (event) => this.interact(event))
 
         engine.input.pointers.primary.on('down', (event) => {
             this.Attack(event)
-
         });
     }
 
@@ -84,7 +84,7 @@ export class playerVisual extends Actor {
     Attack(event) {
         if (this.attackCD >= this.attackSpeed) {
             this.PlayerAttack = new Attack(this.pos.x, this.pos.y)
-            this.scene.add(this.PlayerAttack)
+            this.game.currentScene.add(this.PlayerAttack)
             this.attackCD = 0
         }
     }

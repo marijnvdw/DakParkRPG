@@ -9,8 +9,9 @@ import { NPC } from '../npc.js'
 import { Portal } from './portal.js'
 
 export class testPlaneet extends Scene {
-
-    constructor() {
+    game
+    position
+    constructor(ctx) {
         super();
         // this.character = player
         this.characterVisual = new playerVisual()
@@ -24,14 +25,16 @@ export class testPlaneet extends Scene {
             { item: new Sword(), x: 200, y: 200 }
         ];
 
-        console.log(this)
         this.camera.strategy.lockToActor(this.characterVisual)
-        this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 2000, 1200))
-        this.camera.zoom = 1.1
+        this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 2000, 2048))
+        this.camera.zoom = 2
+        this.position = ctx.pos
     }
 
-    onActivate() {
+    onInitialize(engine) {
+        this.game = engine
         this.add(this.characterVisual);
+        this.characterVisual.pos = this.position
         this.add(this.Npc);
         this.add(this.portal);
 
@@ -44,12 +47,9 @@ export class testPlaneet extends Scene {
 
 
 
-        this.hotBar = new HotBar(this.engine.player); // Create HotBar instance
+        this.hotBar = this.game.hotBar
         this.add(this.hotBar);
         console.log(this.hotBar)
-
-
-
 
         this.items.forEach((itemData) => {
 
@@ -79,12 +79,5 @@ export class testPlaneet extends Scene {
 
             this.add(itemActor);
         });
-
-        // let inventoryItems = new Actor
-        // inventoryItems.sprite = Resources.Cloud.toSprite()
-        // inventoryItems.pos = new Vector(800, 900)
-        // this.add(inventoryItems)
     }
-
-
 }
