@@ -2,7 +2,7 @@ import '../../css/style.css';
 import { Engine, Scene, Actor, Vector, Color, Sprite, BoundingBox } from "excalibur";
 import { Resources, ResourceLoader } from '../resources.js';
 import { Player } from '../Player.js';
-import { HealthPotion, Sword } from "../Item.js";
+import { HealthPotion, Trident } from "../Item.js";
 import { HotBar, Border } from '../UI.js'
 import { playerVisual } from '../playerVisual.js';
 import { NPC } from '../npc.js'
@@ -24,7 +24,7 @@ export class testPlaneet extends Scene {
 
         this.items = [
             { item: new HealthPotion(), x: 300, y: 800 },
-            { item: new Sword(), x: 500, y: 200 }
+            { item: new Trident(), x: 500, y: 200 }
         ];
 
         this.camera.strategy.lockToActor(this.characterVisual)
@@ -47,8 +47,8 @@ export class testPlaneet extends Scene {
         this.add(this.border);
         this.HealthPotion = this.game.HealthPotion
         this.add(this.HealthPotion)
-        this.Sword = this.game.Sword
-        this.add(this.Sword)
+        this.Trident = this.game.Trident
+        this.add(this.Trident)
 
         // let inventory = new Actor
         // inventory.sprite = Resources.inventory.toSprite()

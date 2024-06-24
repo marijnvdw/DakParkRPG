@@ -1,4 +1,4 @@
-import { Actor, Vector, Keys, CollisionType } from "excalibur";
+import { Actor, Vector, Keys, CollisionType, Animation } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
 import { Attack1 } from "./Sem/boss1Attacks.js";
@@ -31,6 +31,63 @@ export class playerVisual extends Actor {
         engine.input.pointers.primary.on('down', (event) => {
             this.Attack(event)
         });
+
+        const animationBackwards = new Animation({
+            frames: [
+                {
+                    graphic: Resources.Back.toSprite(),
+                    duration: 100,
+                },
+                {
+                    graphic: Resources.Backwalk.toSprite(),
+                    duration: 200,
+                },
+            ],
+        });
+        this.animationBackwards = animationBackwards;
+
+        const animationright = new Animation({
+            frames: [
+                {
+                    graphic: Resources.Side.toSprite(),
+                    duration: 100,
+
+                },
+                {
+                    graphic: Resources.Sidewalk.toSprite(),
+                    duration: 200,
+                },
+            ],
+        });
+        this.animationright = animationright;
+
+        const animationleft = new Animation({
+            frames: [
+                {
+                    graphic: Resources.Side.toSprite(),
+                    duration: 100,
+                },
+                {
+                    graphic: Resources.Sidewalk.toSprite(),
+                    duration: 200,
+                },
+            ],
+        });
+        this.animationleft = animationleft;
+
+        const animationFront = new Animation({
+            frames: [
+                {
+                    graphic: Resources.Player.toSprite(),
+                    duration: 100,
+                },
+                {
+                    graphic: Resources.Frontwalk.toSprite(),
+                    duration: 200,
+                },
+            ],
+        });
+        this.animationFront = animationFront;
     }
 
     onPostUpdate(engine) {
@@ -42,21 +99,21 @@ export class playerVisual extends Actor {
         if (this.game.player.moveAble === true) {
             //movement
             if (kb.isHeld(Keys.W)) {
-                this.pos.y -= 4;
-                this.graphics.use(Resources.Back.toSprite());
+                this.pos.y -= 2;
+                this.graphics.use(this.animationBackwards);
             }
             if (kb.isHeld(Keys.A)) {
-                this.pos.x -= 4;
-                this.graphics.use(Resources.Side.toSprite());
+                this.pos.x -= 2;
+                this.graphics.use(this.animationleft);
                 this.graphics.flipHorizontal = false;
             }
             if (kb.isHeld(Keys.S)) {
                 this.pos.y += 4;
-                this.graphics.use(Resources.Player.toSprite());
+                this.graphics.use(this.animationFront);
             }
             if (kb.isHeld(Keys.D)) {
                 this.pos.x += 4;
-                this.graphics.use(Resources.Side.toSprite());
+                this.graphics.use(this.animationright);
                 this.graphics.flipHorizontal = true;
             }
             //dash mechanic
@@ -92,4 +149,6 @@ export class playerVisual extends Actor {
             this.attackCD = 0
         }
     }
+
+
 }

@@ -5,19 +5,21 @@ import { Attack1 } from "./Sem/boss1Attacks.js";
 import { HotBar } from './UI.js'
 
 export class Player extends Actor {
-    hp = 2000
-    maxHp = 2000
+    hp = 20
     Dmg
     moveAble = true;
     game
+    name
     constructor(hotbar) {
         super({ width: Resources.Player.width, height: Resources.Player.height });
         this.inventory = new Inventory();
+        this.addChild(this.inventory)
     }
 
     onInitialize(engine) {
         this.game = engine
         this.Dmg = 10
+        this.name = 'henry'
         //  this.on("collisionstart", (event) => this.interact(event))
         engine.input.keyboard.on('press', (evt) => {
             if (evt.key === Keys.I) {
@@ -31,8 +33,6 @@ export class Player extends Actor {
                     this.scene.engine.hotBar.OnKeyPress(i);
                     break
                 }
-
-
             }
 
             //console.log(evt.key)

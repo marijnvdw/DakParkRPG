@@ -25,7 +25,7 @@ export class NPC extends Actor {
 
         this.text = new Label({
             text: "",
-            pos: new Vector(0, -150),
+            pos: new Vector(0, -120),
             z: 3,
             font: new Font({
                 size: 16,

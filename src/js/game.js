@@ -10,7 +10,8 @@ import { planet3 } from './planet3.js';
 import { Planet1Cutscene } from './Sem/cutscene1.js';
 import { Player } from './Player.js';
 import { HotBar, Border } from './UI.js';
-import { Item, HealthPotion, Sword } from './Item.js'
+import { Item, HealthPotion, Trident } from './Item.js'
+import { Inventory } from './Inventory.js';
 
 
 export class Game extends Engine {
@@ -37,8 +38,8 @@ export class Game extends Engine {
         this.add(this.hotBar);
         this.HealthPotion = new HealthPotion()
         this.add(this.HealthPotion)
-        this.Sword = new Sword()
-        this.add(this.Sword)
+        this.Trident = new Trident()
+        this.add(this.Trident)
         this.border = new Border()
         this.add(this.border)
 
@@ -54,7 +55,7 @@ export class Game extends Engine {
         this.add('planet1', { scene: new planet1(), transitions })
         this.add('planet2', { scene: new ForestPlaneet(), transitions })
         this.add('planet3', { scene: new planet3(), transitions })
-        this.add('testPlaneet', { scene: new testPlaneet(this.hotBar), transitions })
+        this.add('testPlaneet', { scene: new testPlaneet(), transitions })
         this.add('outroScreen', { scene: new outroScreen(), transitions })
         this.add('planet1Cutscene', { scene: new Planet1Cutscene(), transitions })
         //this.goToScene('introScreen')
