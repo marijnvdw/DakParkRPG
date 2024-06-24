@@ -1,4 +1,4 @@
-import { Actor, Vector, Keys, CollisionType, Logger } from "excalibur";
+import { Actor, Vector, Keys, CollisionType, Animation, Input, Buttons, Axes } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
 import { Attack1 } from "./Sem/boss1Attacks.js";
@@ -18,7 +18,7 @@ export class playerVisual extends Actor {
     constructor(player) {
         super({ width: Resources.Player.width / 4, height: Resources.Player.height / 1.5, collisionType: CollisionType.Active });
         this.inventory = new Inventory();
-        this.player = Player
+        this.player = player
         this.z = 100
     }
 
@@ -27,29 +27,85 @@ export class playerVisual extends Actor {
         this.graphics.use(this.sprite);
         this.scale = new Vector(0.25, 0.25);
         this.game = engine
+        // this.gamepad = engine.input.gamepads;
         //  this.on("collisionstart", (event) => this.interact(event))
 
         engine.input.pointers.primary.on('down', (event) => {
             this.Attack(event)
-            //console.log(engine.input.gamepads.at(0).getAxes(Input.Axes.LeftStickX))
-        })
+        });
 
-        engine.input.gamepads.enabled = true;
-        console.log(engine.input.gamepads)
-        console.log(engine.input.keyboard)
+        const animationBackwards = new Animation({
+            frames: [
+                {
+                    graphic: Resources.Back.toSprite(),
+                    duration: 100,
+                },
+                {
+                    graphic: Resources.Backwalk.toSprite(),
+                    duration: 200,
+                },
+            ],
+        });
+        this.animationBackwards = animationBackwards;
 
-        engine.input.gamepads.at(0).on('button', (event) => {
-            if (event.button === 0 && event.value === 1) {
-                this.Attack(event)
-            }
-        })
+        const animationright = new Animation({
+            frames: [
+                {
+                    graphic: Resources.Side.toSprite(),
+                    duration: 100,
 
-        // engine.input.gamepads.at(0).on('axis', function (ev) {
-        //     Logger.getInstance().info(ev.axis, ev.value);
-        // });
+                },
+                {
+                    graphic: Resources.Sidewalk.toSprite(),
+                    duration: 200,
+                },
+            ],
+        });
+        this.animationright = animationright;
+
+        const animationleft = new Animation({
+            frames: [
+                {
+                    graphic: Resources.Side.toSprite(),
+                    duration: 100,
+                },
+                {
+                    graphic: Resources.Sidewalk.toSprite(),
+                    duration: 200,
+                },
+            ],
+        });
+        this.animationleft = animationleft;
+
+        const animationFront = new Animation({
+            frames: [
+                {
+                    graphic: Resources.Player.toSprite(),
+                    duration: 100,
+                },
+                {
+                    graphic: Resources.Frontwalk.toSprite(),
+                    duration: 200,
+                },
+            ],
+        });
+        this.animationFront = animationFront;
     }
 
+    // onPreUpdate(engine) {
+    //     if (!engine.mygamepad) {
+    //         console.log("No gamepad connected");
+    //         return;
+    //     }
+
+
     onPostUpdate(engine) {
+        if (!engine.mygamepad) {
+            return;
+        }
+        let yAxis = engine.mygamepad.getAxes(Axes.LeftStickX)
+        let xAxis = engine.mygamepad.getAxes(Axes.LeftStickY);
+        console.log(xAxis, yAxis)
         if (this.attackCD < this.attackSpeed) {
             this.attackCD++
         }
@@ -57,42 +113,42 @@ export class playerVisual extends Actor {
         let kb = engine.input.keyboard;
 
         if (this.game.player.moveAble === true) {
-            //movement
-            if (kb.isHeld(Keys.W)) {
-                this.pos.y -= 4;
-                this.graphics.use(Resources.Back.toSprite());
-            }
-            if (kb.isHeld(Keys.A)) {
-                this.pos.x -= 4;
-                this.graphics.use(Resources.Side.toSprite());
+            if (yAxis > 0.5) {
+                this.pos.x += 2;
+                this.graphics.use(this.animationright);
+                this.graphics.flipHorizontal = true;
+            } else if (yAxis < -0.5) {
+                this.pos.x -= 2;
+                this.graphics.use(this.animationleft);
                 this.graphics.flipHorizontal = false;
             }
-            if (kb.isHeld(Keys.S)) {
-                this.pos.y += 4;
-                this.graphics.use(Resources.Player.toSprite());
+
+            if (xAxis > 0.9) {
+                this.pos.y += 2;
+                this.graphics.use(this.animationFront);
+            } else if (xAxis < -0.9) {
+                this.pos.y -= 2;
+                this.graphics.use(this.animationBackwards);
             }
-            if (kb.isHeld(Keys.D)) {
-                this.pos.x += 4;
-                this.graphics.use(Resources.Side.toSprite());
-                this.graphics.flipHorizontal = true;
-            }
+
             //dash mechanic
-            if (kb.wasPressed(Keys.Space) && this.dash === true) {
+            if (engine.mygamepad.isButtonPressed(Buttons.Face1) && this.dash === true) {
                 this.dash = false;
-                if (kb.isHeld(Keys.W)) {
+                if (yAxis < -0.5) {
                     this.pos.y -= 100;
                 }
-                if (kb.isHeld(Keys.A)) {
+                if (xAxis < -0.5) {
                     this.pos.x -= 100;
                 }
-                if (kb.isHeld(Keys.S)) {
+                if (yAxis > 0.5) {
                     this.pos.y += 100;
                 }
-                if (kb.isHeld(Keys.D)) {
+                if (xAxis > 0.5) {
                     this.pos.x += 100;
                 }
             }
         }
+
 
         if (this.dashCD < 180) {
             this.dashCD++
