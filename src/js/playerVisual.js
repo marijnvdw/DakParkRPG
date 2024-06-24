@@ -1,4 +1,4 @@
-import { Actor, Vector, Keys, CollisionType } from "excalibur";
+import { Actor, Vector, Keys, CollisionType, Logger } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
 import { Attack1 } from "./Sem/boss1Attacks.js";
@@ -12,6 +12,7 @@ export class playerVisual extends Actor {
     attackCD = 0
     LastDirectionHorizontal = 0
     LastDirectionVertical = 0
+    moveDirection;
     game
 
     constructor(player) {
@@ -30,15 +31,31 @@ export class playerVisual extends Actor {
 
         engine.input.pointers.primary.on('down', (event) => {
             this.Attack(event)
-        });
+            //console.log(engine.input.gamepads.at(0).getAxes(Input.Axes.LeftStickX))
+        })
+
+        engine.input.gamepads.enabled = true;
+        console.log(engine.input.gamepads)
+        console.log(engine.input.keyboard)
+
+        engine.input.gamepads.at(0).on('button', (event) => {
+            if (event.button === 0 && event.value === 1) {
+                this.Attack(event)
+            }
+        })
+
+        // engine.input.gamepads.at(0).on('axis', function (ev) {
+        //     Logger.getInstance().info(ev.axis, ev.value);
+        // });
     }
 
     onPostUpdate(engine) {
-
         if (this.attackCD < this.attackSpeed) {
             this.attackCD++
         }
+
         let kb = engine.input.keyboard;
+
         if (this.game.player.moveAble === true) {
             //movement
             if (kb.isHeld(Keys.W)) {

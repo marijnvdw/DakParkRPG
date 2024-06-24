@@ -8,7 +8,7 @@ export class NPC extends Actor {
     interacting = false
     dialogOptionInt = 0
     questReceived = false
-    gotSword = false
+    gotBelongings = false
     game
     constructor() {
         super({ width: Resources.NPC.width, height: Resources.NPC.height, collisionType: CollisionType.Fixed });
@@ -53,8 +53,8 @@ export class NPC extends Actor {
 
     interact() {
         for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
-            if (this.scene.engine.player.inventory.items[i].name === 'Sword') {
-                this.gotSword = true
+            if (this.scene.engine.player.inventory.items[i].name === 'Backpack') {
+                this.gotBelongings = true
             }
         }
 
@@ -88,7 +88,7 @@ export class NPC extends Actor {
             }
         }
 
-        if (this.gotSword === true && this.questReceived === true) {
+        if (this.gotBelongings === true && this.questReceived === true) {
             this.dialogOptionInt++
             switch (this.dialogOptionInt) {
                 case 1:

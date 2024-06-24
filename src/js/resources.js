@@ -11,8 +11,10 @@ const Resources = {
     Cloud: new ImageSource('images/Sem/cloud.png'),
     Galaxy: new ImageSource('images/Sem/galaxy.jpg'),
     Portal: new ImageSource('images/Sem/portal.png'),
+    Portal2: new ImageSource('images/Sem/portal2.png'),
     House: new ImageSource('images/Sem/strandhuis.png'),
     TextBox: new ImageSource('images/Sem/textBox.png'),
+    Backpack: new ImageSource('images/Sem/backpack.png'),
     Forest: new TiledResource('images/Sem/Tilemap/forestworld.tmx'),
 
     //Sil
