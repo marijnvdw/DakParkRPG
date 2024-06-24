@@ -1,5 +1,5 @@
 import '../css/style.css';
-import { Actor, Engine, Vector, Label, Font, FontUnit, Color, FadeInOut, ArcadeSolver } from "excalibur";
+import { Actor, Engine, Vector, Label, Font, FontUnit, Color, FadeInOut, ArcadeSolver, Input, Buttons, Axes } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
 import { introScreen } from './introScreen.js';  // Ensure this matches the actual filename
 import { outroScreen } from './outroScreen.js';
@@ -21,6 +21,7 @@ export class Game extends Engine {
     border
     healthpot
     Sword
+    mygamepad
 
     constructor() {
         super({
@@ -42,6 +43,17 @@ export class Game extends Engine {
         this.add(this.Trident)
         this.border = new Border()
         this.add(this.border)
+
+        this.input.gamepads.enabled = true
+        this.input.gamepads.on('connect', (connectevent) => {
+            console.log("gamepad detected")
+            this.mygamepad = connectevent.gamepad
+            console.log(this.mygamepad)
+
+            let yAxis = this.mygamepad.getAxes(Axes.LeftStickX)
+            let xAxis = this.mygamepad.getAxes(Axes.LeftStickY);
+            console.log(xAxis, yAxis)
+        })
 
 
 
