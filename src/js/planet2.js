@@ -1,7 +1,7 @@
 import '../css/style.css';
 import { Actor, Vector, Label, Font, FontUnit, Color, Scene, BoundingBox, Sprite } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
-import { HealthPotion, Trident } from "./Item.js";
+import { HealthPotion, Trident, Backpack } from "./Item.js";
 import { HotBar, Border } from './UI.js'
 import { playerVisual } from './playerVisual.js';
 import { PortalForestBack } from './Marijn/spawnables.js'

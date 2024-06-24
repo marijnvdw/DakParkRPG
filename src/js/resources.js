@@ -5,7 +5,7 @@ import { TiledResource } from '@excaliburjs/plugin-tiled';
 const Resources = {
     //Sem
     Player: new ImageSource('images/Sem/fPlayer.png'),
-    NPC: new ImageSource('images/Sem/orb3.png'),
+    NPC: new ImageSource('images/Sem/NPC.png'),
     Boss1: new ImageSource('images/Sem/orb2.png'),
     BeachPlanet: new ImageSource('images/Sem/beachPlanet.png'),
     Cloud: new ImageSource('images/Sem/cloud.png'),

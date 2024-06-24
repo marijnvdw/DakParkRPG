@@ -12,7 +12,6 @@ export class playerVisual extends Actor {
     attackCD = 0
     LastDirectionHorizontal = 0
     LastDirectionVertical = 0
-    moveDirection;
     game
 
     constructor(player) {
@@ -109,9 +108,7 @@ export class playerVisual extends Actor {
         if (this.attackCD < this.attackSpeed) {
             this.attackCD++
         }
-
         let kb = engine.input.keyboard;
-
         if (this.game.player.moveAble === true) {
             if (yAxis > 0.5) {
                 this.pos.x += 2;
