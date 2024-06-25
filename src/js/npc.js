@@ -1,5 +1,5 @@
 import '../css/style.css';
-import { Actor, Vector, Keys, KeyEvent, Text, Engine, Label, Font, FontUnit, Color, Scene, CollisionType } from "excalibur";
+import { Actor, Vector, Keys, KeyEvent, Text, Engine, Label, Font, FontUnit, Color, Scene, CollisionType, Buttons } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
 import { playerVisual } from './playerVisual.js';
 
@@ -47,8 +47,8 @@ export class NPC extends Actor {
 
         interactRange.on('collisionstart', (event) => { if (event.other instanceof playerVisual) { this.interacting = true } })
         interactRange.on('collisionend', (event) => { if (event.other instanceof playerVisual) { this.interacting = false } })
-        this.scene.engine.input.keyboard.on('press', (evt) => {
-            if (evt.key === Keys.E && this.interacting === true) {
+        engine.input.gamepads.at(0).on('button', (evt) => {
+            if (evt.button === Buttons.DpadUp && this.interacting === true) {
                 this.interact()
             }
         })
