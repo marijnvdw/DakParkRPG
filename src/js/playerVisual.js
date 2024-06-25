@@ -29,9 +29,11 @@ export class playerVisual extends Actor {
         // this.gamepad = engine.input.gamepads;
         //  this.on("collisionstart", (event) => this.interact(event))
 
-        engine.input.pointers.primary.on('down', (event) => {
-            this.Attack(event)
-        });
+        this.game.input.gamepads.at(0).on('button', (evt) => {
+            if (evt.Button === Buttons.RightTrigger)
+                console.log('hallo')
+            this.Attack()
+        })
 
         const animationBackwards = new Animation({
             frames: [

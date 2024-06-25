@@ -38,7 +38,6 @@ export class Player extends Actor {
                         this.itemslot--
                     }
                     this.scene.engine.hotBar.OnKeyPress(this.itemslot);
-                    console.log('this ' + this.scene.engine.hotBar.OnKeyPress(i))
                     break
                 }
             }
