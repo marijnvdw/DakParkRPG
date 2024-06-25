@@ -33,16 +33,6 @@ export class Game extends Engine {
     }
 
     startGame() {
-        this.player = new Player();
-        this.add(this.player)
-        this.hotBar = new HotBar(this.player); // Create HotBar instance
-        this.add(this.hotBar);
-        this.HealthPotion = new HealthPotion()
-        this.add(this.HealthPotion)
-        this.Trident = new Trident()
-        this.add(this.Trident)
-        this.border = new Border()
-        this.add(this.border)
 
         this.input.gamepads.enabled = true
         this.input.gamepads.on('connect', (connectevent) => {
@@ -54,6 +44,18 @@ export class Game extends Engine {
             let xAxis = this.mygamepad.getAxes(Axes.LeftStickY);
             console.log(xAxis, yAxis)
         })
+        this.player = new Player();
+        this.add(this.player)
+        this.hotBar = new HotBar(this.player); // Create HotBar instance
+        this.add(this.hotBar);
+        this.HealthPotion = new HealthPotion()
+        this.add(this.HealthPotion)
+        this.Trident = new Trident()
+        this.add(this.Trident)
+        this.border = new Border()
+        this.add(this.border)
+
+
 
 
 
@@ -72,7 +74,7 @@ export class Game extends Engine {
         this.add('planet1Cutscene', { scene: new Planet1Cutscene(), transitions })
         //this.goToScene('introScreen')
         setTimeout(() => {
-            this.goToScene('testPlaneet',)
+            this.goToScene('planet1Cutscene',)
         }, 500)
     }
 }

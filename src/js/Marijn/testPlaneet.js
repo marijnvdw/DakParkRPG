@@ -10,15 +10,16 @@ import { Portal, BeachHouse, PortalForest } from './spawnables.js'
 
 export class testPlaneet extends Scene {
     game
-    position
+
     constructor() {
         super();
         // this.character = player
         this.characterVisual = new playerVisual()
         this.Npc = new NPC
         this.portal = new Portal(1400, 850)
-        this.gate = new PortalForest(40, 1800)
+        this.gate = new PortalForest(35, 1800)
         this.beachHouse = new BeachHouse
+
 
         Resources.planet1back.addToScene(this);
 
@@ -34,8 +35,6 @@ export class testPlaneet extends Scene {
 
     onInitialize(engine) {
         this.game = engine
-        this.add(this.characterVisual);
-        this.characterVisual.pos = new Vector(650, 200)
         this.add(this.Npc);
         this.add(this.portal);
         this.add(this.gate)
@@ -88,5 +87,11 @@ export class testPlaneet extends Scene {
 
             this.add(itemActor);
         });
+    }
+
+    onActivate(ctx) {
+        this.add(this.characterVisual);
+        this.characterVisual.pos = ctx.data.ctx
+        this.game.currentScene.hotBar.OnKeyPress(10)
     }
 }
