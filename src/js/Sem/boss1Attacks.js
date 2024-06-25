@@ -7,7 +7,7 @@ import { playerVisual } from "../playerVisual.js"
 export class Attack1 extends Actor {
     dmg
     constructor(x, y, event) {
-        super({ width: Resources.Boss1.width, height: Resources.Boss1.height })
+        super({ width: Resources.Waterkolk.width, height: Resources.Waterkolk.height })
         this.pos = new Vector(x, y)
         this.target = event
         this.xScale = 0.4
@@ -17,9 +17,9 @@ export class Attack1 extends Actor {
     }
 
     onInitialize() {
-        this.sprite = Resources.Boss1.toSprite()
+        this.sprite = Resources.Waterkolk.toSprite()
         this.graphics.use(this.sprite)
-        this.scale = new Vector(0.4, 0.4)
+        this.scale = new Vector(0.2, 0.2)
         this.dmg = 10
         // const player = this.scene.Player
         // console.log(player)
@@ -27,7 +27,7 @@ export class Attack1 extends Actor {
 
         //  this.on('collisionstart', (event) => this.doDmg(event))
         this.actions.moveTo(this.target.pos.x, this.target.pos.y, 600)
-        this.actions.scaleTo(new Vector(1.3, 1.3), new Vector(1.5, 1.5)).die()
+        this.actions.scaleTo(new Vector(0.5, 0.5), new Vector(0.6, 0.6)).die()
     }
 
     doDmg(event) {

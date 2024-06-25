@@ -27,6 +27,7 @@ const Resources = {
     Backwalk: new ImageSource('images/Maaike/back_walking.png'),
     Sidewalk: new ImageSource('images/Maaike/side_walking.png'),
     Frontwalk: new ImageSource('images/Maaike/walking_front.png'),
+    Waterkolk: new ImageSource('images/Maaike/waterkolk.png'),
 
     //Marijn
     ClassroomMap: new TiledResource('images/Marijn/NewMap.tmx'),

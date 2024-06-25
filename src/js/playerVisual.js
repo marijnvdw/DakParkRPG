@@ -29,9 +29,16 @@ export class playerVisual extends Actor {
         // this.gamepad = engine.input.gamepads;
         //  this.on("collisionstart", (event) => this.interact(event))
 
-        engine.input.pointers.primary.on('down', (event) => {
-            this.Attack(event)
-        });
+        this.game.input.gamepads.at(0).on('button', (evt) => {
+            if (evt.Button === Buttons.RightTrigger) {
+                for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
+                    if (this.scene.engine.player.inventory.items[i].name === 'Trident') {
+                        this.Attack()
+                    }
+                }
+            }
+            //  console.log('hallo')
+        })
 
         const animationBackwards = new Animation({
             frames: [

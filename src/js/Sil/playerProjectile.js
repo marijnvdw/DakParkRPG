@@ -42,7 +42,7 @@ export class Attack extends Actor {
             console.log(this.scene)
             if (this.scene.actors[1].hp <= 0) {
                 event.other.kill()
-                this.scene.engine.goToScene("outroScreen")
+                this.scene.engine.goToScene("introScreen")
             }
         }
     }

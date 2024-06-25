@@ -31,14 +31,14 @@ export class Player extends Actor {
             for (let i = 0; i < keyList.length; i++) {
                 if (keyList[i] == evt.button) {
                     console.log(this.itemslot)
-                    if (keyList[i] === 1) {
-                        this.itemslot++
-                    }
-                    if (keyList[i] === 0) {
+                    if (evt.button === Buttons.DpadLeft) {
+                        console.log('ziektes')
                         this.itemslot--
                     }
+                    if (evt.button === Buttons.DpadRight) {
+                        this.itemslot++
+                    }
                     this.scene.engine.hotBar.OnKeyPress(this.itemslot);
-                    console.log('this ' + this.scene.engine.hotBar.OnKeyPress(i))
                     break
                 }
             }

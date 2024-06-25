@@ -25,7 +25,6 @@ export class testPlaneet extends Scene {
 
         this.items = [
             { item: new HealthPotion(), x: 300, y: 800 },
-            { item: new Trident(), x: 500, y: 200 }
         ];
 
         this.camera.strategy.lockToActor(this.characterVisual)

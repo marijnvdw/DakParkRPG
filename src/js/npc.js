@@ -2,6 +2,7 @@ import '../css/style.css';
 import { Actor, Vector, Keys, KeyEvent, Text, Engine, Label, Font, FontUnit, Color, Scene, CollisionType, Buttons } from "excalibur";
 import { Resources, ResourceLoader } from './resources.js';
 import { playerVisual } from './playerVisual.js';
+import { Backpack, Trident } from './Item.js';
 
 
 export class NPC extends Actor {
@@ -49,12 +50,12 @@ export class NPC extends Actor {
         interactRange.on('collisionend', (event) => { if (event.other instanceof playerVisual) { this.interacting = false } })
         engine.input.gamepads.at(0).on('button', (evt) => {
             if (evt.button === Buttons.DpadUp && this.interacting === true) {
-                this.interact()
+                this.interact(evt)
             }
         })
     }
 
-    interact() {
+    interact(evt) {
         for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
             if (this.scene.engine.player.inventory.items[i].name === 'Backpack') {
                 this.gotBelongings = true
@@ -103,7 +104,11 @@ export class NPC extends Actor {
                     break;
                 case 3:
                     this.text.text = '...'
-                    // Haal backpack weg
+                    for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
+                        if (this.scene.engine.player.inventory.items[i].name === 'Backpack') {
+                            this.scene.engine.player.inventory.removeItem('2')
+                        }
+                    }
                     break;
                 case 4:
                     this.text.text = 'It all started a few days ago when\na powerfull force caused a glitch\nof sorts in this universe.'
@@ -128,6 +133,8 @@ export class NPC extends Actor {
                     break;
                 case 11:
                     this.text.text = 'I just happen to have some.'
+                    const trident = new Trident()
+                    this.scene.engine.player.addItemToInventory(trident);
                     break;
                 case 12:
                     this.text.text = ''
