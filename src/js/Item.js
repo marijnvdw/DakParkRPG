@@ -1,23 +1,19 @@
-import { Resource, ImageSource, Vector, Actor } from "excalibur";
+import { Resource, ImageSource, Vector  } from "excalibur";
 import { Resources } from './resources.js';
 import { vector } from "excalibur/build/dist/Util/DrawUtil.js";
 
 
-export class Item extends Actor {
+export class Item {
     constructor(name, description, imagePath, imageName, scaleTexture) {
-        super()
         this.name = name;
         this.description = description;
         this.image = imagePath;
         this.imageName = imageName;
         this.scaleTexture = scaleTexture;
     }
-    onInitialize(engine) {
-        this.game = engine
-    }
 
-    use() {
-        console.log(`${this.game.currentScene.player.name} used ${this.name}`);
+    use(character) {
+        console.log(`${character.name} used ${this.name}`);
     }
 }
 
