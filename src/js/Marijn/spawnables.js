@@ -56,7 +56,7 @@ export class PortalForest extends Actor {
             this.scene.actors.forEach(actor => {
                 this.game.currentScene.engine.clock.schedule(() => actor.kill(), 320)
             })
-            this.game.goToScene('planet1');
+            this.game.goToScene('planet2');
         }
     }
 }

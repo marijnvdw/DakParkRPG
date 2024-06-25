@@ -15,7 +15,7 @@ export class playerVisual extends Actor {
     game
 
     constructor(player) {
-        super({ width: Resources.Player.width / 3.7, height: Resources.Player.height / 1, collisionType: CollisionType.Active });
+        super({ width: Resources.Player.width / 4, height: Resources.Player.height / 1.5, collisionType: CollisionType.Active });
         this.inventory = new Inventory();
         this.player = Player
         this.z = 100
@@ -43,16 +43,21 @@ export class playerVisual extends Actor {
             //movement
             if (kb.isHeld(Keys.W)) {
                 this.pos.y -= 4;
+                this.graphics.use(Resources.Back.toSprite());
             }
             if (kb.isHeld(Keys.A)) {
                 this.pos.x -= 4;
+                this.graphics.use(Resources.Side.toSprite());
+                this.graphics.flipHorizontal = false;
             }
             if (kb.isHeld(Keys.S)) {
                 this.pos.y += 4;
+                this.graphics.use(Resources.Player.toSprite());
             }
             if (kb.isHeld(Keys.D)) {
                 this.pos.x += 4;
-
+                this.graphics.use(Resources.Side.toSprite());
+                this.graphics.flipHorizontal = true;
             }
             //dash mechanic
             if (kb.wasPressed(Keys.Space) && this.dash === true) {

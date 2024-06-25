@@ -1,9 +1,17 @@
+import { Actor } from 'excalibur';
 import { HotBar } from './UI.js'
 
-export class Inventory {
+export class Inventory extends Actor {
+    game
     constructor() {
+        super()
         this.items = [];
     }
+
+    onInitialize(engine) {
+        this.game = engine
+    }
+
 
     addItem(item) {
         this.items.push(item);
@@ -17,7 +25,12 @@ export class Inventory {
     }
 
     useItem(item) {
-        console.log(`Using ${item.name}`);
+        //   console.log(`Using`, this.game[this.items[item]]);
+        //  console.log(this.game[this.items].use)
+        let toUse = (this.items[item].name)
+        //this.game[toUse].use
+        console.log(toUse)
+
     }
 
     getItems() {

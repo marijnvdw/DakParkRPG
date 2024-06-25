@@ -45,6 +45,10 @@ export class testPlaneet extends Scene {
         console.log(this.hotBar)
         this.border = this.game.border
         this.add(this.border);
+        this.HealthPotion = this.game.HealthPotion
+        this.add(this.HealthPotion)
+        this.Sword = this.game.Sword
+        this.add(this.Sword)
 
         // let inventory = new Actor
         // inventory.sprite = Resources.inventory.toSprite()

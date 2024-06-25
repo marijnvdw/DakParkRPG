@@ -5,7 +5,7 @@ import { introScreen } from './introScreen.js';  // Ensure this matches the actu
 import { outroScreen } from './outroScreen.js';
 import { testPlaneet } from './Marijn/testPlaneet.js';
 import { planet1 } from './planet1.js';
-import { planet2 } from './planet2.js';
+import { ForestPlaneet } from './planet2.js';
 import { planet3 } from './planet3.js';
 import { Planet1Cutscene } from './Sem/cutscene1.js';
 import { Player } from './Player.js';
@@ -35,8 +35,8 @@ export class Game extends Engine {
         this.add(this.player)
         this.hotBar = new HotBar(this.player); // Create HotBar instance
         this.add(this.hotBar);
-        this.healthpot = new HealthPotion()
-        this.add(this.healthpot)
+        this.HealthPotion = new HealthPotion()
+        this.add(this.HealthPotion)
         this.Sword = new Sword()
         this.add(this.Sword)
         this.border = new Border()
@@ -52,7 +52,7 @@ export class Game extends Engine {
 
         this.add('introScreen', { scene: new introScreen(), transitions })
         this.add('planet1', { scene: new planet1(), transitions })
-        this.add('planet2', { scene: new planet2(), transitions })
+        this.add('planet2', { scene: new ForestPlaneet(), transitions })
         this.add('planet3', { scene: new planet3(), transitions })
         this.add('testPlaneet', { scene: new testPlaneet(this.hotBar), transitions })
         this.add('outroScreen', { scene: new outroScreen(), transitions })
