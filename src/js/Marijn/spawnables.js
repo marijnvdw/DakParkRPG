@@ -16,7 +16,7 @@ export class Portal extends Actor {
     onInitialize(engine) {
         this.sprite = Resources.Portal.toSprite()
         this.graphics.use(this.sprite)
-        this.scale = new Vector(0.07, 0.07)
+        this.scale = new Vector(0.7, 0.7)
         this.z = 1000
         this.game = engine
 

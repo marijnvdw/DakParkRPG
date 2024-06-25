@@ -31,7 +31,11 @@ export class playerVisual extends Actor {
 
         this.game.input.gamepads.at(0).on('button', (evt) => {
             if (evt.Button === Buttons.RightTrigger) {
-                this.Attack()
+                for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
+                    if (this.scene.engine.player.inventory.items[i].name === 'Trident') {
+                        this.Attack()
+                    }
+                }
             }
             //  console.log('hallo')
         })

@@ -25,7 +25,6 @@ export class HealthPotion extends Item {
         this.game.player.hp += 10;
         console.log(`${this.game.player.name} restored 10 health`);
     }
-
 }
 
 export class Trident extends Item {
@@ -45,6 +44,6 @@ export class Backpack extends Item {
     }
 
     use() {
-        //console.log(`${this.game.currentScene.player.name} attack increased by 10`);
+
     }
 }
