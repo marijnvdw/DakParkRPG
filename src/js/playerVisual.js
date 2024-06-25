@@ -104,11 +104,10 @@ export class playerVisual extends Actor {
         }
         let yAxis = engine.mygamepad.getAxes(Axes.LeftStickX)
         let xAxis = engine.mygamepad.getAxes(Axes.LeftStickY);
-        console.log(xAxis, yAxis)
         if (this.attackCD < this.attackSpeed) {
             this.attackCD++
         }
-        let kb = engine.input.keyboard;
+        //  let kb = engine.input.keyboard;
         if (this.game.player.moveAble === true) {
             if (yAxis > 0.5) {
                 this.pos.x += 2;
@@ -131,16 +130,16 @@ export class playerVisual extends Actor {
             //dash mechanic
             if (engine.mygamepad.isButtonPressed(Buttons.Face1) && this.dash === true) {
                 this.dash = false;
-                if (yAxis < -0.5) {
+                if (xAxis < -0.5) {
                     this.pos.y -= 100;
                 }
-                if (xAxis < -0.5) {
+                if (yAxis < -0.5) {
                     this.pos.x -= 100;
                 }
-                if (yAxis > 0.5) {
+                if (xAxis > 0.5) {
                     this.pos.y += 100;
                 }
-                if (xAxis > 0.5) {
+                if (yAxis > 0.5) {
                     this.pos.x += 100;
                 }
             }
