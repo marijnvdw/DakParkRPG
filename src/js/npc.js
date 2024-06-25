@@ -8,24 +8,26 @@ export class NPC extends Actor {
     interacting = false
     dialogOptionInt = 0
     questReceived = false
-    gotSword = false
+    gotBelongings = false
     game
     constructor() {
         super({ width: Resources.NPC.width, height: Resources.NPC.height, collisionType: CollisionType.Fixed });
+        this.scale = new Vector(0.1, 0.1)
+        this.z = 10
     }
 
     onInitialize(engine) {
         this.sprite = Resources.NPC.toSprite()
         this.graphics.use(this.sprite)
-        this.pos = new Vector(370, 300)
+        this.pos = new Vector(340, 330)
         this.game = engine
 
-        let interactRange = new Actor({ radius: 100 })
+        let interactRange = new Actor({ radius: 1000 })
         this.addChild(interactRange)
 
         this.text = new Label({
             text: "",
-            pos: new Vector(0, -150),
+            pos: new Vector(0, -1200),
             z: 3,
             font: new Font({
                 size: 16,
@@ -33,6 +35,7 @@ export class NPC extends Actor {
             })
         });
         this.text.z = 3
+        this.text.scale = new Vector(10, 10)
         this.text.anchor = new Vector(0.5, 0.5)
         this.addChild(this.text)
 
@@ -53,8 +56,8 @@ export class NPC extends Actor {
 
     interact() {
         for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
-            if (this.scene.engine.player.inventory.items[i].name === 'Sword') {
-                this.gotSword = true
+            if (this.scene.engine.player.inventory.items[i].name === 'Backpack') {
+                this.gotBelongings = true
             }
         }
 
@@ -73,7 +76,7 @@ export class NPC extends Actor {
                     this.text.text = 'Listen up, I will help you out\nbut nothing is free around here.'
                     break;
                 case 4:
-                    this.text.text = 'A wolf from the portal down south\nstole my belongings from me.'
+                    this.text.text = 'I lost it in the portal\nsouth from here.'
                     break;
                 case 5:
                     this.text.text = 'Help me out and I\'ll tell\nyou everything you need to know.'
@@ -88,11 +91,11 @@ export class NPC extends Actor {
             }
         }
 
-        if (this.gotSword === true && this.questReceived === true) {
+        if (this.gotBelongings === true && this.questReceived === true) {
             this.dialogOptionInt++
             switch (this.dialogOptionInt) {
                 case 1:
-                    this.text.text = 'Oh, you got my things back.'
+                    this.text.text = 'Oh, you got my stuff back.'
                     this.text.addChild(this.textBox)
                     break;
                 case 2:
@@ -100,6 +103,7 @@ export class NPC extends Actor {
                     break;
                 case 3:
                     this.text.text = '...'
+                    // Haal backpack weg
                     break;
                 case 4:
                     this.text.text = 'It all started a few days ago when\na powerfull force caused a glitch\nof sorts in this universe.'
@@ -117,15 +121,20 @@ export class NPC extends Actor {
                     this.text.text = 'I\'ll help you get back to your own world.'
                     break;
                 case 9:
-                    this.text.text = 'You\'ll get the details later,\nfor now you need some\narmor and weapons.'
+                    this.text.text = 'You\'ll need to beat the boss\nto return to\nyour own world'
                     break;
                 case 10:
-                    this.text.text = 'There might be some north of here.'
+                    this.text.text = 'You\'ll need some armor and\nweapons tho.'
                     break;
                 case 11:
+                    this.text.text = 'I just happen to have some.'
+                    break;
+                case 12:
                     this.text.text = ''
                     this.dialogOptionInt = 0
                     this.textBox.kill()
+                    this.gotBelongings = false
+                    // geef wapen aan player
                     break;
             }
         }

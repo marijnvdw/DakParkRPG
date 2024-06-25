@@ -1,44 +1,52 @@
-import { Actor, Vector, Keys, CollisionType } from "excalibur";
+import { Actor, Vector, Keys, CollisionType, Buttons, Axes } from "excalibur";
 import { Resources } from './resources.js';
 import { Inventory } from './Inventory.js';
 import { Attack1 } from "./Sem/boss1Attacks.js";
 import { HotBar } from './UI.js'
 
 export class Player extends Actor {
-    hp = 2000
-    maxHp = 2000
+    hp = 20
     Dmg
     moveAble = true;
     game
+    name
+    itemslot
     constructor(hotbar) {
         super({ width: Resources.Player.width, height: Resources.Player.height });
         this.inventory = new Inventory();
+        this.addChild(this.inventory)
     }
 
     onInitialize(engine) {
         this.game = engine
         this.Dmg = 10
+        this.name = 'henry'
+        this.itemslot = 0
         //  this.on("collisionstart", (event) => this.interact(event))
-        engine.input.keyboard.on('press', (evt) => {
-            if (evt.key === Keys.I) {
-                this.logInventory();
-                this.scene.engine.hotBar.OnKeyPress(10); // Update HotBar
-            }
 
-            let keyList = [Keys.Digit1, Keys.Digit2, Keys.Digit3]
+
+        engine.input.gamepads.at(0).on('button', (evt) => {
+            console.log("event: " + evt.button)
+            let keyList = [Buttons.DpadLeft, Buttons.DpadRight, Buttons.Face3]
             for (let i = 0; i < keyList.length; i++) {
-                if (keyList[i] == evt.key) {
-                    this.scene.engine.hotBar.OnKeyPress(i);
+                if (keyList[i] == evt.button) {
+                    console.log(this.itemslot)
+                    if (keyList[i] === 1) {
+                        this.itemslot++
+                    }
+                    if (keyList[i] === 0) {
+                        this.itemslot--
+                    }
+                    this.scene.engine.hotBar.OnKeyPress(this.itemslot);
+                    console.log('this ' + this.scene.engine.hotBar.OnKeyPress(i))
                     break
                 }
-
-
             }
 
             //console.log(evt.key)
             //if (evt.key == Keys.Digit2) {
 
-            if (evt.key == Keys.Q) {
+            if (evt.button === Buttons.Face4) {
                 this.inventory.useItem(this.game.hotBar.equipeditem)
             }
         });
@@ -65,5 +73,12 @@ export class Player extends Actor {
         this.inventory.getItems().forEach(item => {
             console.log(`- ${item.name}: ${item.description}`);
         });
+    }
+    onPostUpdate() {
+        //     if (this.game.mygamepad.isButtonPressed(Buttons.Face2)) {
+        //         console.log('Jump!')
+        //         this.scene.engine.hotBar.OnKeyPress(10);
+        //     }
+        //  console.log(this.game.mygamepad.isButtonPressed)
     }
 }

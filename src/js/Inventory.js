@@ -1,8 +1,10 @@
 import { Actor } from 'excalibur';
-import { HotBar } from './UI.js'
+import { HotBar, Border } from './UI.js'
 
 export class Inventory extends Actor {
+    border
     game
+    hotBarItem
     constructor() {
         super()
         this.items = [];
@@ -10,6 +12,7 @@ export class Inventory extends Actor {
 
     onInitialize(engine) {
         this.game = engine
+        this.border = this.game.Border
     }
 
 
@@ -18,9 +21,12 @@ export class Inventory extends Actor {
     }
 
     removeItem(item) {
-        const index = this.items.indexOf(item);
-        if (index > -1) {
-            this.items.splice(index, 1);
+        console.log('hoi')
+        if (item > -1) {
+            this.items.splice(item, item);
+            console.log(this.items)
+            this.game.currentScene.hotBar.OnKeyPress(10); // Update HotBar
+            this.game.border.updateBorder()
         }
     }
 
@@ -28,9 +34,12 @@ export class Inventory extends Actor {
         //   console.log(`Using`, this.game[this.items[item]]);
         //  console.log(this.game[this.items].use)
         let toUse = (this.items[item].name)
-        //this.game[toUse].use
         console.log(toUse)
-
+        this.game[toUse].use()
+        console.log(this.game.player.hp)
+        this.removeItem(item)
+        this.game.hotBar.equipeditem--
+        this.game.border.updateBorder
     }
 
     getItems() {
