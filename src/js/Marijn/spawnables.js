@@ -136,3 +136,32 @@ export class BeachHouseInside extends Scene {
         this.game.goToScene('planet1');
     }
 }
+
+export class PortalDakpark extends Actor {
+    game;
+
+    constructor(x, y) {
+        super({ width: Resources.Portal.width / 1.5, height: Resources.Portal.width });
+        this.pos = new Vector(x, y)
+    }
+
+    onInitialize(engine) {
+        this.sprite = Resources.Portal2.toSprite()
+        this.graphics.use(this.sprite)
+        this.scale = new Vector(0.5, 0.5)
+        this.graphics.flipHorizontal = true
+        this.z = 1000
+        this.game = engine
+
+        this.on('collisionstart', (event) => this.enterPortal(event))
+    }
+
+    enterPortal(event) {
+        if (event.other instanceof playerVisual) {
+            //this.scene.actors.forEach(actor => {
+            //this.game.currentScene.engine.clock.schedule(() => actor.kill(), 320)
+            //})
+            this.game.goToScene('introScreen');
+        }
+    }
+}

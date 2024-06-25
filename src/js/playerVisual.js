@@ -101,6 +101,8 @@ export class playerVisual extends Actor {
 
 
     onPostUpdate(engine) {
+
+        
         if (!engine.mygamepad) {
             return;
         }

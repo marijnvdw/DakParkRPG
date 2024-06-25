@@ -17,6 +17,7 @@ export class Boss1 extends Actor {
         this.sprite = Resources.Krab.toSprite()
         this.graphics.use(this.sprite)
         this.pos = new Vector(600, 600)
+        this.z = 20000000
         let rangeDetector = new Actor({ radius: 5000 })
         this.addChild(rangeDetector)
         rangeDetector.on('precollision', (event) => this.attack(event, Math.ceil(Math.random() * 10)))
