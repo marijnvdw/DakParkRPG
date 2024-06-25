@@ -12,6 +12,7 @@ import { Player } from './Player.js';
 import { HotBar, Border } from './UI.js';
 import { Item, HealthPotion, Trident } from './Item.js'
 import { Inventory } from './Inventory.js';
+import { Dakpark } from './Dakpark.js';
 
 
 export class Game extends Engine {
@@ -72,9 +73,10 @@ export class Game extends Engine {
         this.add('testPlaneet', { scene: new testPlaneet(), transitions })
         this.add('outroScreen', { scene: new outroScreen(), transitions })
         this.add('planet1Cutscene', { scene: new Planet1Cutscene(), transitions })
+        this.add('Dakpark', { scene: new Dakpark(), transitions })
         //this.goToScene('introScreen')
         setTimeout(() => {
-            this.goToScene('planet1Cutscene',)
+            this.goToScene('Dakpark',)
         }, 500)
     }
 }

@@ -14,6 +14,7 @@ export class planet1 extends Scene {
     }
 
     onInitialize(engine) {
+        Resources.UnderDeWater.addToScene(this);
         this.game = engine
         let Visual = new playerVisual()
         this.add(Visual)

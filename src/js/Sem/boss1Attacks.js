@@ -13,6 +13,7 @@ export class Attack1 extends Actor {
         this.xScale = 0.4
         this.yScale = 0.4
         this.lifeSpan = 0
+        this.z = 20
     }
 
     onInitialize() {

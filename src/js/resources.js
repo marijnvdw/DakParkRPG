@@ -33,7 +33,9 @@ const Resources = {
     inventory: new ImageSource('images/Marijn/inv.png'),
     apple: new ImageSource('images/Marijn/apple.png'),
     sword: new ImageSource('images/Marijn/sword.png'),
-    invBorder: new ImageSource('images/Marijn/invborder.png')
+    invBorder: new ImageSource('images/Marijn/invborder.png'),
+    dakparkBack: new TiledResource('images/Marijn/DakParkMap.tmx'),
+    UnderDeWater: new TiledResource('images/Marijn/UnderDeWater.tmx')
 
 }
 
