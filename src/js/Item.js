@@ -42,3 +42,13 @@ export class Trident extends Item {
         console.log(`${this.game.player.name} attack increased by 10`);
     }
 }
+
+export class Backpack extends Item {
+    constructor() {
+        super("Backpack", "A strangers backpack", Resources.Backpack, 'Backpack', new Vector(0.02, 0.02));
+    }
+
+    use() {
+        //console.log(`${this.game.currentScene.player.name} attack increased by 10`);
+    }
+}

@@ -7,14 +7,14 @@ export class Planet1Cutscene extends Scene {
     game
     constructor() {
         super();
-
         Resources.planet1back.addToScene(this);
     }
 
     onInitialize(engine) {
         this.game = engine
         this.game.currentScene.engine.clock.schedule(() => this.killScene(), 650)
-        this.game.currentScene.engine.clock.schedule(() => this.engine.goToScene('testPlaneet'), 3000)
+        this.game.currentScene.engine.clock.schedule(() => this.engine.goToScene('testPlaneet',
+            { sceneActivationData: { ctx: new Vector(650, 200) } }), 3000)
 
         this.playerCutscene = new Actor({
             pos: new Vector(0, 0),
