@@ -32,7 +32,7 @@ export class Boss1 extends Actor {
                     this.attackCD = 0
                 } else {
                     //this.graphics.use()
-                    this.actions.moveTo(event.other.pos, 7500)
+                    this.actions.moveTo(event.other.pos, 1500)
                     // setTimeout(() => {
                     this.graphics.use(this.sprite)
                     // }, 100);

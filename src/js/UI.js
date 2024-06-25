@@ -21,30 +21,24 @@ export class HotBar extends ScreenElement {
     }
 
     OnKeyPress(activekey) {
-        console.log('hoi')
-        console.log(this.scene.engine.player.inventory.items)
-        console.log(this.scene.actors)
+
         for (let index = 0; index < this.scene.actors.length; index++) {
             if (this.scene.actors[index].name == 'hotBarItem') {
-                console.log('driewieler')
                 this.scene.actors[index].kill()
             }
         }
 
         for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
             const hotBarItem = new HotBarItems();
-            console.log(hotBarItem)
             this.scene.engine.add(hotBarItem);
             hotBarItem.updateHotBarItems(this.scene.engine.player.inventory.items[i].image, this.scene.engine.player.inventory.items[i].scaleTexture, i);
 
-            console.log(this.equipeditem)
             if (this.equipeditem == undefined) {
                 this.equipeditem = i
             } else if (i == activekey && activekey != 10) {
                 this.equipeditem = activekey
             }
         }
-        console.log(this.equipeditem)
         this.scene.engine.border.updateBorder()
     }
 }
@@ -56,12 +50,9 @@ export class HotBarItems extends ScreenElement {
         this.slot = slot;
     }
 
-    onInitialize(engine) {
-        console.log('hi')
-    }
 
     updateHotBarItems(path, scaleTexture, invPos) {
-        console.log(path)
+
         this.graphics.use(path.toSprite());
         this.scale = scaleTexture;
         this.z = 11
@@ -94,8 +85,7 @@ export class Border extends ScreenElement {
 
     updateBorder() {
         this.pos = new Vector((window.innerWidth / 2) - 190 + (47 * this.game.hotBar.equipeditem), window.innerHeight - 30);
-        console.log('location change')
-        console.log(this.pos)
+
     }
 
 }
