@@ -46,9 +46,9 @@ export class Player extends Actor {
             //console.log(evt.key)
             //if (evt.key == Keys.Digit2) {
 
-            if (evt.button === Buttons.Face4) {
-                this.inventory.useItem(this.game.hotBar.equipeditem)
-            }
+            // if (evt.button === Buttons.Face4) {
+            //     this.inventory.useItem(this.game.hotBar.equipeditem)
+            // }
         });
     }
 

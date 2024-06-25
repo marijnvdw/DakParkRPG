@@ -105,8 +105,9 @@ export class NPC extends Actor {
                 case 3:
                     this.text.text = '...'
                     for (let i = 0; i < this.scene.engine.player.inventory.items.length; i++) {
+                        console.log(this.scene.engine.player.inventory.items[i].name)
                         if (this.scene.engine.player.inventory.items[i].name === 'Backpack') {
-                            this.scene.engine.player.inventory.removeItem('2')
+                            this.scene.engine.player.inventory.removeItem(i)
                         }
                     }
                     break;
