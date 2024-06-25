@@ -16,7 +16,7 @@ export class Attack1 extends Actor {
     }
 
     onInitialize() {
-        this.sprite = Resources.Boss1.toSprite()
+        this.sprite = Resources.Waterkolk.toSprite()
         this.graphics.use(this.sprite)
         this.scale = new Vector(0.4, 0.4)
         this.dmg = 10
