@@ -1,4 +1,4 @@
-import { Resource, ImageSource, Vector  } from "excalibur";
+import { Resource, ImageSource, Vector } from "excalibur";
 import { Resources } from './resources.js';
 import { vector } from "excalibur/build/dist/Util/DrawUtil.js";
 

@@ -30,9 +30,10 @@ export class playerVisual extends Actor {
         //  this.on("collisionstart", (event) => this.interact(event))
 
         this.game.input.gamepads.at(0).on('button', (evt) => {
-            if (evt.Button === Buttons.RightTrigger)
-                console.log('hallo')
-            this.Attack()
+            if (evt.Button === Buttons.RightTrigger) {
+                this.Attack()
+            }
+            //  console.log('hallo')
         })
 
         const animationBackwards = new Animation({
